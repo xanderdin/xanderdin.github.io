@@ -12,7 +12,7 @@ $(document).ready(function() {
     self.respLang = getRespLang(); // Used in server response
 
     self.i18n = new I18n({
-        directory: '/i18n',
+        directory: 'i18n',
         locale: self.userLang,
         extension: '.json'
     });

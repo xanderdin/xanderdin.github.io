@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>@xanderdin</title>
+    <link>http://xanderdin.github.io/ru/index.xml</link>
+    <description>Recent content on @xanderdin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <lastBuildDate>Sun, 25 Oct 2015 14:04:58 +0300</lastBuildDate>
+    <atom:link href="http://xanderdin.github.io/ru/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Лечение телефона Jiayu G2F от зависаний</title>
+      <link>http://xanderdin.github.io/ru/post/healing-the-freezing-of-Jiayu-G2F-phone/</link>
+      <pubDate>Sun, 25 Oct 2015 14:04:58 +0300</pubDate>
+      
+      <guid>http://xanderdin.github.io/ru/post/healing-the-freezing-of-Jiayu-G2F-phone/</guid>
+      <description>
+
+&lt;p&gt;Заказал на Aliexpress телефон &lt;strong&gt;Jiayu G2F WCDMA&lt;/strong&gt;, модель с 1Гб RAM и 4Гб ROM.
+Телефончик оказался неплохой, но к сожалению обнаружилась в нем одна досадная
+проблема - он очень часто зависал намертво без каких-либо видимых на то причин.
+Поиск в интернете показал, что эта проблема не только моего экземпляра, а
+присуща вообще этой модели в целом. Телефон я покупал для моей дочки и ей он
+очень понравился, поэтому отправлять его обратно продавцу не хотелось.
+К тому же меня не покидала надежда, что проблема где-то на программном уровне,
+а следовательно ее можно как-то исправить или обойти. И в этом я не ошибался.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ВНИМАНИЕ! Все описанное тут было проделано исключительно с
+моделью Jiayu G2F WCDMA, 1Гб RAM, 4Гб ROM, Android 4.2.2, ядро 3.4.5,
+сборка G2FW-20141027-W-R-V0.3.6. Попытка прошить предложенным boot-образом
+другую модель скорее всего выведет ее из строя.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Анализ проблемы выявил, что примерно с интервалом в две секунды в системе
+запускался новый экземпляр сервиса &lt;strong&gt;memsicd3416x&lt;/strong&gt;. При этом старые экземпляры
+сервиса продолжали находится в памяти и со временем их становилось огромное
+количество. Стало понятно, что такое бесконтрольное размножение в конце концов
+приводит к исчерпанию системных ресурсов и вероятно служит причиной зависания.&lt;/p&gt;
+
+&lt;p&gt;Параметры запуска сервиса &lt;strong&gt;memsicd3416x&lt;/strong&gt; определены в файле &lt;strong&gt;init.rc&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;service memsicd3416x /system/bin/memsicd3416x
+    disabled
+    user system
+    group system
+    class main
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Чтение документации по &lt;strong&gt;init.rc&lt;/strong&gt; Андроида привело к мысли, что среди
+параметров этого сервиса не хватает опции &lt;strong&gt;oneshot&lt;/strong&gt;, которая должна
+препятствовать множественному запуску сервиса.&lt;/p&gt;
+
+&lt;p&gt;Решил добавить эту опцию, но так как процедура требует перепрошивки
+boot-раздела телефона, что в случае ошибки приведет к &amp;ldquo;кирпичу&amp;rdquo;, решил
+сначала убедится в правоте своих рассуждений. К счастью, в процессе
+дальнейшего поиска мне попался модифицированный образ boot-раздела,
+который, как утверждалось, нацелен на устранение каких-то проблем с
+компасом этой модели телефона. Когда я его распаковал и сравнил с
+содержимым оригинального boot-раздела, то сразу же убедился в правоте
+своих рассуждений:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;diff -Naur original/rootfs/init.rc modified/rootfs/init.rc
+--- original/rootfs/init.rc 2015-10-22 22:41:58.406635561 +0300
++++ modified/rootfs/init.rc 2015-10-22 22:41:48.970914550 +0300
+@@ -1317,7 +1317,8 @@
+ #
+
+ service msensord /system/bin/msensord
+-    class main
++    oneshot
++ #   class main
+
+ service s62xd /system/bin/s62xd
+     disabled
+@@ -1339,9 +1340,10 @@
+
+ service memsicd3416x /system/bin/memsicd3416x
+      disabled
++     oneshot
+      user system
+     group system
+-    class main
++ #   class main
+
+ service akmd8975 /system/bin/akmd8975
+     disabled
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;И в самом деле опция &lt;strong&gt;oneshot&lt;/strong&gt; была нужна! Решил прошить boot-раздел
+телефона используя этот найденный модифицированный boot-образ.&lt;/p&gt;
+
+&lt;h2 id=&#34;прошивка&#34;&gt;Прошивка&lt;/h2&gt;
+
+&lt;p&gt;Для прошивки я использовал утилиту &lt;strong&gt;fastboot&lt;/strong&gt;. Изначально я попытался
+осуществить прошивку с моего компьютера с системой Debian 8 Jessie. Но из-за
+каких-то проблем с драйвером &lt;em&gt;cdc_acm&lt;/em&gt;, &lt;strong&gt;fastboot&lt;/strong&gt; не видел подключенного
+телефона, хотя &lt;strong&gt;adb&lt;/strong&gt; работал без проблем. Решать одновременно и эту проблему
+не хотелось, поэтому я решил скачать какой-нибудь Live-CD Linux дистрибутив
+и прошить из него.&lt;/p&gt;
+
+&lt;p&gt;Для этой цели выбрал &lt;a href=&#34;https://www.archlinux.org&#34;&gt;Arch Linux&lt;/a&gt;. Скачал
+&lt;a href=&#34;http://mirror.rackspace.com/archlinux/iso/2015.10.01/archlinux-2015.10.01-dual.iso&#34;&gt;ISO образ&lt;/a&gt;,
+записал на CD диск и загрузился на стареньком 32-х битном ноутбуке. Попав в
+консоль, установил требуемые пакеты:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pacman -Sy
+pacman -S android-tools
+pacman -S android-udev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Загрузил со своего основного компьютера подготовленный модифицированный
+boot-образ загрузочного раздела телефона:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;scp mylogin@mydesktop:boot.img ./
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Подключил телефон к USB ноутбука, перевел телефон в &lt;strong&gt;режим отладки по USB&lt;/strong&gt;
+и в консоли выполнил команду:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb devices
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Увидев телефон в списке устройств, дал команду для перезагрузки телефона
+в режим &lt;strong&gt;bootloader&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb reboot bootloader
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Телефон перезагрузился и на его дисплее появилось уведомление о том, что
+он загружен в режиме &lt;strong&gt;bootloder&lt;/strong&gt;. Теперь дал следующую команду:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fastboot devices
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Убедившись, что телефон отображается и в этом списке, дал команду на
+прошивку:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fastboot flash boot boot.img
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Не прошло и двух секунд, как прошивка выполнилась успешно. Перезагружаю
+телефон:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fastboot reboot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Телефон перезагрузился и все готово, проблема с зависанием решена! Со
+времени прошивки и на момент написания этих строк прошло уже несколько
+дней. Сервис &lt;strong&gt;memsicd3416x&lt;/strong&gt; не размножается и телефон не виснет.&lt;/p&gt;
+
+&lt;h2 id=&#34;ссылки&#34;&gt;Ссылки&lt;/h2&gt;
+
+&lt;p&gt;Модифицированный boot-образ был найден
+&lt;a href=&#34;http://www.mediafire.com/download/avcudzc753254tb/JY-G2F-W-kernel-changer-to-0.3.6b.zip&#34;&gt;здесь&lt;/a&gt;.
+Информация о нем на форуме сайта
+&lt;a href=&#34;http://4pda.ru/forum/index.php?showtopic=584280&amp;amp;view=findpost&amp;amp;p=40437370&#34;&gt;4pda.ru&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Описание init.rc можно посмотреть
+&lt;a href=&#34;https://github.com/android/platform_system_core/blob/jb-release/init/readme.txt&#34;&gt;вот здесь&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Для удобства выложил оригинальный и модифицированный boot-образы в
+git-репозиторий &lt;a href=&#34;https://github.com/xanderdin/Jiayu-G2F-freeze-fix&#34;&gt;https://github.com/xanderdin/Jiayu-G2F-freeze-fix&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Всем удачи!&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

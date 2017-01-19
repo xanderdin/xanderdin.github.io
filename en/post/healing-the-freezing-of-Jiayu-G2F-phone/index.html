@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    Healing the freezing of Jiayu G2F phone | @xanderdin
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://xanderdin.github.io/en/post/healing-the-freezing-of-Jiayu-G2F-phone/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+  
+  <link href="http://xanderdin.github.io/index.xml" rel="alternate" type="application/rss+xml" title="@xanderdin" />
+  <link href="http://xanderdin.github.io/index.xml" rel="feed" type="application/rss+xml" title="@xanderdin" />
+
+  
+  
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://xanderdin.github.io/">@xanderdin</a></h1>
+        
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          
+          
+          
+          
+          <li>[<a href="http://xanderdin.github.io/ru/post/healing-the-freezing-of-Jiayu-G2F-phone/">ru</a>]</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>Healing the freezing of Jiayu G2F phone</h1>
+      <div class="meta">
+        2015-10-25 &nbsp;
+        
+        
+          <br>
+          Translations:
+          
+            [<a href="http://xanderdin.github.io/ru/post/healing-the-freezing-of-Jiayu-G2F-phone/">ru</a>]
+          
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>I ordered a <strong>Jiayu G2F WCDMA</strong> phone with 1Gb RAM and 4Gb ROM at Aliexpress.
+The phone is pretty cool but it has a very disappointing problem - it freezes
+very often without any visible reason. Searching on the web revealed that this
+problem pertains to the whole model and not exclusively to my device. I
+purchased the phone for my daughter and she liked it very much, so we didn&rsquo;t
+want sending it back to seller. Moreover, I hoped this was a software related
+problem, so it could be fixed or overcome. And I wasn&rsquo;t mistaken.</p>
+
+<p><strong>WARNING! Everything described here was performed exclusively with the
+Jiayu G2F WCDMA model with 1Gb RAM, 4Gb ROM, Android 4.2.2, kernel 3.4.5,
+build G2FW-20141027-W-R-V0.3.6. An attempt to flash with the provided boot
+image any other model will most probably damage it.</strong></p>
+
+<p>I analysed the problem and found that the system was launching a new instance
+of <strong>memsicd3416x</strong> service almost every two seconds. The old instances of the
+service proceded to run in memory and there were a lot of them after some time.
+I guessed that such behaviour finally leads to system resource shortage and the
+freeze.</p>
+
+<p>The start parameters of <strong>memsicd3416x</strong> service are described in <strong>init.rc</strong>
+file:</p>
+
+<pre><code>service memsicd3416x /system/bin/memsicd3416x
+    disabled
+    user system
+    group system
+    class main
+</code></pre>
+
+<p>Reading of Android <strong>init.rc</strong> documentation gave me a thought that maybe the
+<strong>oneshot</strong> option was missing among the parameters. That option is aimed to
+prevent multiple service runs.</p>
+
+<p>I decided to add that option, but as far as such addition requires a reflashing
+of the phone&rsquo;s boot partition, and reflashing could &ldquo;brick&rdquo; your device in case
+of an error, I decided to make sure my guesses are true. Fortunately, during my
+next search I found a modified image of the boot partition, which as they said,
+was aimed to eliminate some troubles with that phone model&rsquo;s magnetic compass.
+When I unpacked that image and compared it with the original boot image I
+immediately found a proof for my guesses:</p>
+
+<pre><code>diff -Naur original/rootfs/init.rc modified/rootfs/init.rc
+--- original/rootfs/init.rc 2015-10-22 22:41:58.406635561 +0300
++++ modified/rootfs/init.rc 2015-10-22 22:41:48.970914550 +0300
+@@ -1317,7 +1317,8 @@
+ #
+
+ service msensord /system/bin/msensord
+-    class main
++    oneshot
++ #   class main
+
+ service s62xd /system/bin/s62xd
+     disabled
+@@ -1339,9 +1340,10 @@
+
+ service memsicd3416x /system/bin/memsicd3416x
+      disabled
++     oneshot
+      user system
+     group system
+-    class main
++ #   class main
+
+ service akmd8975 /system/bin/akmd8975
+     disabled
+</code></pre>
+
+<p>The <strong>oneshot</strong> option was really nessesary! I decided to flash phone&rsquo;s boot
+partition with that found modified boot image.</p>
+
+<h2 id="flashing">Flashing</h2>
+
+<p>I used the <strong>fastboot</strong> utility for flashing. I initially tried to flash using
+my computer with Debian 8 Jessie OS.  But some problems with <em>cdc_acm</em> driver
+prevented <strong>fastboot</strong> utility from seeing connected devices, although <strong>adb</strong>
+utility was working fine. I didn&rsquo;t want to solve another problem
+simultaniuosly, so I decided to download any Live-CD Linux distribution and
+flash from it.</p>
+
+<p>I chose <a href="https://www.archlinux.org">Arch Linux</a> for that purpose. Downloaded
+<a href="http://mirror.rackspace.com/archlinux/iso/2015.10.01/archlinux-2015.10.01-dual.iso">ISO image</a>,
+burned it to CD, and booted it on an old 32-bit notebook. When it booted to
+console I proceeded with installing needed packages:</p>
+
+<pre><code>pacman -Sy
+pacman -S android-tools
+pacman -S android-udev
+</code></pre>
+
+<p>I downloaded from my primary desktop computer the prepared modified boot image
+of the phone&rsquo;s boot partition:</p>
+
+<pre><code>scp mylogin@mydesktop:boot.img ./
+</code></pre>
+
+<p>Connected phone to the notebook&rsquo;s USB, switched on the phone&rsquo;s <strong>USB debug mode</strong>
+and issued a command in console:</p>
+
+<pre><code>adb devices
+</code></pre>
+
+<p>Seeing the phone in the list of devices I issued a command to reboot it to
+<strong>bootloader mode</strong>:</p>
+
+<pre><code>adb reboot bootloader
+</code></pre>
+
+<p>When the phone rebooted, it displayed a message notifying that it had booted
+to <strong>bootloader mode</strong>. The next command was:</p>
+
+<pre><code>fastboot devices
+</code></pre>
+
+<p>Seeing once again the phone in the list of devices I issued a command to flash
+it:</p>
+
+<pre><code>fastboot flash boot boot.img
+</code></pre>
+
+<p>It was about two seconds and the flashing process completed successfuly.
+Rebooting the phone:</p>
+
+<pre><code>fastboot reboot
+</code></pre>
+
+<p>The phone rebooted and the problem with the freezing had gone. Several days
+already passed since I flashed it. The <strong>memsicd3416x</strong> service is not spawning
+and the phone is not freezing.</p>
+
+<h2 id="links">Links</h2>
+
+<p>The modified boot image was found
+<a href="http://www.mediafire.com/download/avcudzc753254tb/JY-G2F-W-kernel-changer-to-0.3.6b.zip">here</a>.
+Some information about it at
+<a href="http://4pda.ru/forum/index.php?showtopic=584280&amp;view=findpost&amp;p=40437370">4pda.ru</a> site.</p>
+
+<p>Description of init.rc is
+<a href="https://github.com/android/platform_system_core/blob/jb-release/init/readme.txt">over here</a>.</p>
+
+<p>For the sake of convinience I uploaded the modified and the original boot
+images to my git repository <a href="https://github.com/xanderdin/Jiayu-G2F-freeze-fix">https://github.com/xanderdin/Jiayu-G2F-freeze-fix</a>.</p>
+
+<p><em>Take care!</em></p>
+
+
+      
+      
+    </article>
+     <aside><div id="disqus_thread"></div></aside>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'xanderdin';
+    var disqus_config = function () {
+      
+        this.language = 'en';
+      
+      
+        this.page.identifier = 'healing-the-freezing-of-Jiayu-G2F-phone.html';
+      
+    };
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+  </main>
+
+  <nav class="pagination-single">
+    
+      <span class="previous">&larr; <a href="http://xanderdin.github.io/en/" rel="prev">@xanderdin</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      
+      
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter33394183 = new Ya.Metrika(
+                    {
+                        id:33394183,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    }
+                );
+            } catch(e) { } }
+        );
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>
+    <div>
+        <img src="https://mc.yandex.ru/watch/33394183" style="position:absolute; left:-9999px;" alt="" />
+    </div>
+</noscript>
+
+
+
+
+</body>
+</html>
+

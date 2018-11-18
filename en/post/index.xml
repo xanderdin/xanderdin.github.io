@@ -2,166 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on @xanderdin</title>
-    <link>http://xanderdin.github.io/en/post/index.xml</link>
+    <link>http://xanderdin.github.io/en/post/</link>
     <description>Recent content in Posts on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Oct 2015 14:04:58 +0300</lastBuildDate>
-    <atom:link href="http://xanderdin.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Nov 2018 22:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://xanderdin.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What if I reinvent the &#34;wheel&#34;?!</title>
+      <link>http://xanderdin.github.io/en/post/lets-reinvent-the-wheel/</link>
+      <pubDate>Sat, 17 Nov 2018 22:00:00 +0300</pubDate>
+      
+      <guid>http://xanderdin.github.io/en/post/lets-reinvent-the-wheel/</guid>
+      <description>Olga, my wife is a professional artist and an interior designer. She&amp;rsquo;s using brushes, paints and pencils in a perfect way. But when it comes to a computer the matters become a little bit worse. Nevertheless, she mastered a couple of graphical applications and even such a big &amp;ldquo;monster&amp;rdquo; for 3D modeling as Blender!
+But for the interior design neighther drawing a picture nor even building a 3D model is quite enough.</description>
+    </item>
     
     <item>
       <title>Healing the freezing of Jiayu G2F phone</title>
-      <link>http://xanderdin.github.io/en/post/healing-the-freezing-of-Jiayu-G2F-phone/</link>
+      <link>http://xanderdin.github.io/en/post/healing-the-freezing-of-jiayu-g2f-phone/</link>
       <pubDate>Sun, 25 Oct 2015 14:04:58 +0300</pubDate>
       
-      <guid>http://xanderdin.github.io/en/post/healing-the-freezing-of-Jiayu-G2F-phone/</guid>
-      <description>
-
-&lt;p&gt;I ordered a &lt;strong&gt;Jiayu G2F WCDMA&lt;/strong&gt; phone with 1Gb RAM and 4Gb ROM at Aliexpress.
-The phone is pretty cool but it has a very disappointing problem - it freezes
-very often without any visible reason. Searching on the web revealed that this
-problem pertains to the whole model and not exclusively to my device. I
-purchased the phone for my daughter and she liked it very much, so we didn&amp;rsquo;t
-want sending it back to seller. Moreover, I hoped this was a software related
-problem, so it could be fixed or overcome. And I wasn&amp;rsquo;t mistaken.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;WARNING! Everything described here was performed exclusively with the
-Jiayu G2F WCDMA model with 1Gb RAM, 4Gb ROM, Android 4.2.2, kernel 3.4.5,
-build G2FW-20141027-W-R-V0.3.6. An attempt to flash with the provided boot
-image any other model will most probably damage it.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I analysed the problem and found that the system was launching a new instance
-of &lt;strong&gt;memsicd3416x&lt;/strong&gt; service almost every two seconds. The old instances of the
-service proceded to run in memory and there were a lot of them after some time.
-I guessed that such behaviour finally leads to system resource shortage and the
-freeze.&lt;/p&gt;
-
-&lt;p&gt;The start parameters of &lt;strong&gt;memsicd3416x&lt;/strong&gt; service are described in &lt;strong&gt;init.rc&lt;/strong&gt;
-file:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;service memsicd3416x /system/bin/memsicd3416x
-    disabled
-    user system
-    group system
-    class main
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Reading of Android &lt;strong&gt;init.rc&lt;/strong&gt; documentation gave me a thought that maybe the
-&lt;strong&gt;oneshot&lt;/strong&gt; option was missing among the parameters. That option is aimed to
-prevent multiple service runs.&lt;/p&gt;
-
-&lt;p&gt;I decided to add that option, but as far as such addition requires a reflashing
-of the phone&amp;rsquo;s boot partition, and reflashing could &amp;ldquo;brick&amp;rdquo; your device in case
-of an error, I decided to make sure my guesses are true. Fortunately, during my
-next search I found a modified image of the boot partition, which as they said,
-was aimed to eliminate some troubles with that phone model&amp;rsquo;s magnetic compass.
-When I unpacked that image and compared it with the original boot image I
-immediately found a proof for my guesses:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;diff -Naur original/rootfs/init.rc modified/rootfs/init.rc
---- original/rootfs/init.rc 2015-10-22 22:41:58.406635561 +0300
-+++ modified/rootfs/init.rc 2015-10-22 22:41:48.970914550 +0300
-@@ -1317,7 +1317,8 @@
- #
-
- service msensord /system/bin/msensord
--    class main
-+    oneshot
-+ #   class main
-
- service s62xd /system/bin/s62xd
-     disabled
-@@ -1339,9 +1340,10 @@
-
- service memsicd3416x /system/bin/memsicd3416x
-      disabled
-+     oneshot
-      user system
-     group system
--    class main
-+ #   class main
-
- service akmd8975 /system/bin/akmd8975
-     disabled
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The &lt;strong&gt;oneshot&lt;/strong&gt; option was really nessesary! I decided to flash phone&amp;rsquo;s boot
-partition with that found modified boot image.&lt;/p&gt;
-
-&lt;h2 id=&#34;flashing&#34;&gt;Flashing&lt;/h2&gt;
-
-&lt;p&gt;I used the &lt;strong&gt;fastboot&lt;/strong&gt; utility for flashing. I initially tried to flash using
-my computer with Debian 8 Jessie OS.  But some problems with &lt;em&gt;cdc_acm&lt;/em&gt; driver
-prevented &lt;strong&gt;fastboot&lt;/strong&gt; utility from seeing connected devices, although &lt;strong&gt;adb&lt;/strong&gt;
-utility was working fine. I didn&amp;rsquo;t want to solve another problem
-simultaniuosly, so I decided to download any Live-CD Linux distribution and
-flash from it.&lt;/p&gt;
-
-&lt;p&gt;I chose &lt;a href=&#34;https://www.archlinux.org&#34;&gt;Arch Linux&lt;/a&gt; for that purpose. Downloaded
-&lt;a href=&#34;http://mirror.rackspace.com/archlinux/iso/2015.10.01/archlinux-2015.10.01-dual.iso&#34;&gt;ISO image&lt;/a&gt;,
-burned it to CD, and booted it on an old 32-bit notebook. When it booted to
-console I proceeded with installing needed packages:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;pacman -Sy
-pacman -S android-tools
-pacman -S android-udev
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I downloaded from my primary desktop computer the prepared modified boot image
-of the phone&amp;rsquo;s boot partition:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;scp mylogin@mydesktop:boot.img ./
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Connected phone to the notebook&amp;rsquo;s USB, switched on the phone&amp;rsquo;s &lt;strong&gt;USB debug mode&lt;/strong&gt;
-and issued a command in console:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb devices
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seeing the phone in the list of devices I issued a command to reboot it to
-&lt;strong&gt;bootloader mode&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb reboot bootloader
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;When the phone rebooted, it displayed a message notifying that it had booted
-to &lt;strong&gt;bootloader mode&lt;/strong&gt;. The next command was:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;fastboot devices
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seeing once again the phone in the list of devices I issued a command to flash
-it:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;fastboot flash boot boot.img
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It was about two seconds and the flashing process completed successfuly.
-Rebooting the phone:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;fastboot reboot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The phone rebooted and the problem with the freezing had gone. Several days
-already passed since I flashed it. The &lt;strong&gt;memsicd3416x&lt;/strong&gt; service is not spawning
-and the phone is not freezing.&lt;/p&gt;
-
-&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
-
-&lt;p&gt;The modified boot image was found
-&lt;a href=&#34;http://www.mediafire.com/download/avcudzc753254tb/JY-G2F-W-kernel-changer-to-0.3.6b.zip&#34;&gt;here&lt;/a&gt;.
-Some information about it at
-&lt;a href=&#34;http://4pda.ru/forum/index.php?showtopic=584280&amp;amp;view=findpost&amp;amp;p=40437370&#34;&gt;4pda.ru&lt;/a&gt; site.&lt;/p&gt;
-
-&lt;p&gt;Description of init.rc is
-&lt;a href=&#34;https://github.com/android/platform_system_core/blob/jb-release/init/readme.txt&#34;&gt;over here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;For the sake of convinience I uploaded the modified and the original boot
-images to my git repository &lt;a href=&#34;https://github.com/xanderdin/Jiayu-G2F-freeze-fix&#34;&gt;https://github.com/xanderdin/Jiayu-G2F-freeze-fix&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Take care!&lt;/em&gt;&lt;/p&gt;
-</description>
+      <guid>http://xanderdin.github.io/en/post/healing-the-freezing-of-jiayu-g2f-phone/</guid>
+      <description>I ordered a Jiayu G2F WCDMA phone with 1Gb RAM and 4Gb ROM at Aliexpress. The phone is pretty cool but it has a very disappointing problem - it freezes very often without any visible reason. Searching on the web revealed that this problem pertains to the whole model and not exclusively to my device. I purchased the phone for my daughter and she liked it very much, so we didn&amp;rsquo;t want sending it back to seller.</description>
     </item>
     
   </channel>

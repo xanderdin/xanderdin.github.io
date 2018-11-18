@@ -1,3 +1,7 @@
+/* Theme color
+--------------------------------------------------*/
+/* Basic
+--------------------------------------------------*/
 body {
   background-color: #fff;
   font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -84,6 +88,8 @@ img {
   border: 0;
   vertical-align: middle;
 }
+/* Header
+--------------------------------------------------*/
 header {
   padding: 20px 0;
   margin-bottom: 20px;
@@ -125,6 +131,8 @@ header #social li:last-child {
     text-align: center;
   }
 }
+/* Pager (for List Page)
+--------------------------------------------------*/
 nav ul.pagination {
   font-size: 0;
   text-align: center;
@@ -144,6 +152,8 @@ nav ul.pagination li.active {
 nav ul.pagination li:hover {
   border-color: #29abe2;
 }
+/* Pager (for Single Page)
+--------------------------------------------------*/
 nav.pagination-single {
   padding: 20px 0 20px 0;
   overflow: hidden;
@@ -161,9 +171,13 @@ nav.pagination-single span.next {
 nav.pagination-single a {
   color: #29abe2;
 }
+/* Comment
+--------------------------------------------------*/
 #single aside {
   margin-top: 80px;
 }
+/* Footer
+--------------------------------------------------*/
 footer {
   margin: 80px 0;
   padding: 20px 0;
@@ -179,6 +193,8 @@ footer img {
     margin: 40px 0;
   }
 }
+/* Single Page
+--------------------------------------------------*/
 article h1 {
   margin: 50px 0 25px 0;
 }
@@ -195,6 +211,7 @@ article h6 {
 }
 article p {
   margin: 25px 0;
+  text-align: justify;
 }
 article code {
   color: #333;
@@ -221,6 +238,8 @@ article img {
 article #share-this {
   margin: 40px 0 40px 0;
 }
+/* Common
+--------------------------------------------------*/
 .article-header {
   border-left: 4px solid #29abe2;
   margin: 10px 0 25px -4px;
@@ -237,4 +256,7 @@ article #share-this {
 .meta {
   color: #999;
   font-size: 12px;
+}
+.post-excerpt {
+  text-align: justify;
 }

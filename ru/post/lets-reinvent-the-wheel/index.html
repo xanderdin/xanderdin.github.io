@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    А не изобрести ли мне &#34;велосипед&#34;?! | @xanderdin
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+  
+  <link href="http://xanderdin.github.io/index.xml" rel="alternate" type="application/rss+xml" title="@xanderdin" />
+  <link href="http://xanderdin.github.io/index.xml" rel="feed" type="application/rss+xml" title="@xanderdin" />
+
+  
+  
+
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-129409239-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://xanderdin.github.io/">@xanderdin</a></h1>
+        
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          
+          
+          
+          
+          <li>[<a href="http://xanderdin.github.io/en/post/lets-reinvent-the-wheel/">en</a>]</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>А не изобрести ли мне &#34;велосипед&#34;?!</h1>
+      <div class="meta">
+        2018-11-17 &nbsp;
+        
+        
+          <br>
+          Переводы:
+          
+            [<a href="http://xanderdin.github.io/en/post/lets-reinvent-the-wheel/">en</a>]
+          
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>Ольга, моя жена, &ndash; профессиональный художник и дизайнер интерьеров.
+Она отлично владеет кистями, красками и карандашами. Но вот с компьютером
+дела обстоят несколько хуже. И тем не менее она смогла освоить ряд программ
+для компьютерной графики и даже такого крутого &ldquo;монстра&rdquo; для 3D моделирования
+как <a href="https://www.blender.org">Blender</a>!</p>
+
+<p><img src="/img/post/2018111701/1.jpg" alt="Пример дизайна" /></p>
+
+<p>Но для дизайна интерьера недостаточно нарисовать картинку, и даже недостаточно
+построить 3D модель. Строителям нужны точные чертежи. Но вот с программами
+для черчения не задалось у неё как-то, и чертила она как водится, обычным
+карандашом по обычной бумаге.</p>
+
+<p>К тому времени я потерял работу, а сильнейшее профессиональное выгорание
+крайне негативно сказывалось на попытке найти новую. Я чувствовал, что мне
+требуется смена рода деятельности. В то время и решили мы, что я попробую
+заняться черчением и взять таким образом на себя часть дизайнерской работы
+моей жены.</p>
+
+<p>Сказано &ndash; сделано. Шаг за шагом стал осваивать я это новое для себя занятие.
+Будучи давним любителем свободных программных продуктов с открытым исходным
+кодом, неудивительно, что я начал использовать именно их и в этом деле.
+К слову, одним из основных инструментов для этой задачи для меня стал
+<a href="https://librecad.org">LibreCAD</a>. Один проект, другой, третий&hellip; Стала
+постепенно вырисовываться картина и приходить понимание того как
+организовать свой рабочий процесс. Появились свои шаблоны, стала
+наполняться и своя библиотека компонентов для чертежей.</p>
+
+<p><img src="/img/post/2018111701/2.jpg" alt="Пример чертежа" /></p>
+
+<p>На каком-то этапе пришло понимание того, что много ручной работы повторяется
+раз за разом и отнимает очень много времени, а следовательно её можно и нужно
+автоматизировать. И тут я почувствовал, что пришло время снова задействовать
+свои прошлые профессиональные навыки и знания.</p>
+
+<h2 id="велосипед-под-названием-enumsheets-https-github-com-xanderdin-enumsheets">&ldquo;Велосипед&rdquo; под названием <a href="https://github.com/xanderdin/enumsheets">enumsheets</a></h2>
+
+<p>Одним из завершающих этапов в подготовке чертежей является нумерация листов,
+простановка общего количества листов, составление содержания. Проблема
+заключается в том, что на этапе черчения еще не известно точное количество
+всех листов. Кроме того, окончательное количество может быть дополнено или
+сокращено, либо изменен порядок листов. После того как количество и порядок
+будут известны, требуется открыть все листы и проставить эти значения в
+титульном блоке каждого листа. Кроме того, надо взять название каждого листа
+и составить лист содержания. Обычный дизайн-проект может содержать 50-60
+листов чертежей. Для открытия каждого листа и простановки тех значений
+требуется около двух часов ручной монотонной работы. А теперь представьте,
+что в порядке нумерации где-нибудь в начале или середине была допущена
+ошибка! Или снова потребовалось добавить или удалить листы, или поменять
+их порядок. В общем, не для того у нас компьютеры чтобы выполнять эту
+нудную рутинную работу вручную.</p>
+
+<p>Так появился <a href="https://github.com/xanderdin/enumsheets">enumsheets</a>.
+Скрипт подсчитывает общее количество листов, осуществляет поиск титульного
+блока в каждом из листов и проставляет в него требуемые значения, включая
+номер листа, общее количество листов, а также при необходимости дату, масштаб,
+адрес. Кроме того скрипт извлекает названия каждого из листов и составляет
+содержание сохраняя его в файле Excel. И всё это за секунды!</p>
+
+<p><img src="/img/post/2018111701/3.jpg" alt="Необработанный титульный блок" /></p>
+
+<p><img src="/img/post/2018111701/4.jpg" alt="Обработанный титульный блок" /></p>
+
+<p>Готовый скрипт главным образом адаптирован под особенности нашего процесса
+подготовки чертежей в рамках дизайнерских работ моей жены
+(<a href="http://artidea.gallery">http://artidea.gallery</a>). Но так как все основные параметры этого скрипта
+задаются в его конфигурационном файле, то его нетрудно будет адаптировать и
+под чужие нужды. Возможно, что кому нибудь он также облегчит работу.</p>
+
+<h2 id="листы-готовы-что-дальше">Листы готовы, что дальше?</h2>
+
+<p>Конечно, еще много чего можно автоматизировать. К примеру, когда листы
+готовы, они все хранятся в отдельных dxf файлах. Но ведь их надо еще
+подготовить к печати. В нашем случае нам нужен один общий pdf файл
+со всем содержимым. И что же, опять вручную открывать каждый лист
+для его печати в pdf? Нет конечно, хотя изначально было именно так.
+О том как мне удалось автоматизировать этот процесс я постараюсь рассказать
+в моей следующей публикации. А пока, желаю и вам успехов с вашими &ldquo;велосипедами&rdquo;
+ :) !</p>
+
+
+      
+      
+    </article>
+     <aside><div id="disqus_thread"></div></aside>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'xanderdin';
+    var disqus_config = function () {
+      
+        this.language = 'ru';
+      
+      
+        this.page.identifier = 'lets-reinvent-the-wheel.ru';
+      
+    };
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+  </main>
+
+  <nav class="pagination-single">
+    
+      <span class="previous">&larr; <a href="http://xanderdin.github.io/ru/post/healing-the-freezing-of-jiayu-g2f-phone/" rel="prev">Лечение телефона Jiayu G2F от зависаний</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      
+      
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
+

@@ -6,10 +6,20 @@
     <description>Recent content on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 17 Nov 2018 22:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 20 Nov 2018 20:00:00 +0300</lastBuildDate>
     
 	<atom:link href="http://xanderdin.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What if I lubricate my &#34;wheel&#34;?</title>
+      <link>http://xanderdin.github.io/en/post/lets-lubricate-the-wheel/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>http://xanderdin.github.io/en/post/lets-lubricate-the-wheel/</guid>
+      <description>As I related in my previous article, I got a sudden urge to automate my process of preparation of drawings. Automatic enumeration &amp;ndash; perfect, but now I need to prepare those sheets for printing somehow.
+These days my main tool for drawing is LibreCAD. When I was choosing it, one of the criterias among others was certainly its freeness and open sources. And at this time the advantage of open source was shown in its full strength.</description>
+    </item>
     
     <item>
       <title>What if I reinvent the &#34;wheel&#34;?!</title>

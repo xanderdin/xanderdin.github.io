@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    What if I lubricate my &#34;wheel&#34;? | @xanderdin
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://xanderdin.github.io/en/post/lets-lubricate-the-wheel/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+  
+  <link href="http://xanderdin.github.io/index.xml" rel="alternate" type="application/rss+xml" title="@xanderdin" />
+  <link href="http://xanderdin.github.io/index.xml" rel="feed" type="application/rss+xml" title="@xanderdin" />
+
+  
+  
+
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-129409239-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://xanderdin.github.io/">@xanderdin</a></h1>
+        
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          
+          
+          
+          
+          <li>[<a href="http://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/">ru</a>]</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>What if I lubricate my &#34;wheel&#34;?</h1>
+      <div class="meta">
+        2018-11-20 &nbsp;
+        
+        
+          <br>
+          Translations:
+          
+            [<a href="http://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/">ru</a>]
+          
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>As I related in my <a href="/en/post/lets-reinvent-the-wheel">previous article</a>, I got
+a sudden urge to automate my process of preparation of drawings.
+Automatic enumeration &ndash; perfect, but now I need to prepare those
+sheets for printing somehow.</p>
+
+<p>These days my main tool for drawing is
+<a href="https://librecad.org">LibreCAD</a>. When I was choosing it, one of the criterias
+among others was certainly its freeness and open sources. And at this time
+the advantage of open source was shown in its full strength.</p>
+
+<p><img src="/img/post/2018112001/1.png" alt="My drawing in LibreCAD" /></p>
+
+<p>So, as a final result I need one single <em>pdf</em> file with all sheets in it.
+I was accomplishing that by the following. With each sheet, I opened it in
+<em>LibreCAD</em>, then I was switching to print preview mode, next I was setting
+printing scale, and the sheet was centered. After that I was printing it to
+a <em>pdf</em> file each time giving new name for the output file. When all
+sheets were so converted to their <em>pdf</em> files, I was running in my system
+(<a href="https://debian.org">Debian</a>) a console utility
+<a href="https://manpages.debian.org/stretch/poppler-utils/pdfunite.1.en.html">pdfunite</a>
+and was getting all those <em>pdf</em> files united into single <em>pdf</em> file.</p>
+
+<p>It&rsquo;s easy enough to imagine that procedure required also a lot of
+repetitive manual actions and was taking a lot of time. You may think, why
+not doing all that right after drawing a sheet? The answer is simple, I need
+numbering of each sheet and insertion of total number of sheets into every sheet
+title block, but the total number of sheets is unknown until all sheets are
+drawn.</p>
+
+<p>I needed a solution, a utility which I would run in console, with directory
+as a command line parameter, where all my <em>dxf</em> files were saved, and would
+get as output many, or even better, one <em>pdf</em> file.</p>
+
+<p>I searched for such utilities and didn&rsquo;t find anything suitable.
+Realising, if <em>LibreCAD</em> can print required <em>pdf</em>, so why not to use its
+functionality somehow. Realising also, if I would put a <em>feature request</em> to
+<em>LibreCAD</em> developers, it would most probably required too much time, as far as
+they have enough tasks to work upon without it. And this is what
+the real power of open source software is &ndash; if you can, go roll up your
+sleeves and just do it yourself, and don&rsquo;t forget to share with others either.
+At that time I decided to try and write such a utility myself. Inspired by
+the future results I started digging into <em>LibreCAD</em> source code.</p>
+
+<h2 id="warming-up">Warming-up</h2>
+
+<p>I have little knowledge of <em>C++</em> or <a href="https://www.qt.io">Qt</a> with which the
+<em>LibreCAD</em> is written, but I got some experience of programming in <em>C</em> and also
+some experience in object oriented programing using <em>Java</em> and <em>Python</em>.
+So digging into <em>LibreCAD</em>&rsquo;s source code didn&rsquo;t discovered any big troubles.</p>
+
+<p>But before coding something more complicated I decided to test my skills
+with something more simple. Because of using many layers in my drawings
+I was feeling strong shortage of the ability to lock/unlock all layers at once.
+Just imagine, you need unlocking of 150-200 layers and you&rsquo;re doing that
+one by one. Every time I was clicking on a small image of a lock of next
+layer I was feeling it was rather strange not having such a functionality,
+given that similar functionality for showing/hiding all layers was implemented.
+And I decided to implement that similar feature.</p>
+
+<p>By using <a href="https://www.gnu.org/software/grep/">grep</a> I searched for
+the roots of &lsquo;Show/Hide all layers&rsquo; functionality and wrote the similar one.
+My
+<a href="https://github.com/LibreCAD/LibreCAD/pull/1018">pull request</a> got merged
+into <em>LibreCAD</em> <strong>master</strong> branch unexpectedly quickly, which gave me more
+inspiration for implementation of my former intention.</p>
+
+<p><img src="/img/post/2018112001/2.png" alt="Lock/Unlock all layers buttons" /></p>
+
+<h2 id="dxf2pdf">dxf2pdf</h2>
+
+<p>So, inspired I began implementation. Initially I wanted to make a stand alone
+utility something similar like <em>ttf2lff</em> in <em>LibreCAD</em>, using only minimal
+subset of required code from <em>LibreCAD</em> and not touching any code on which
+<em>librecad</em> itself was build. I was searching methods for printing to <em>pdf</em>,
+copying them and unsparingly cutting off everything I thought was redundant
+for the future utility and soon got working prototype.
+However, the produced <em>pdf</em> files were somewhat a little bit different of what
+I usually was getting when printing from <em>LibreCAD</em>. And they lacked hatches and
+fonts completely.</p>
+
+<p>After more thorough digging in the code I realized the functionality for
+<em>pdf</em> printing had a lot more dependencies on other <em>LibreCAD</em> code than
+I was thinking initially. Suspecting if I would copy more code then it would
+required synchronizing with each additions/fixes in the <em>LibreCAD</em> code.
+So, that approach was rejected.</p>
+
+<p>Next, I wanted to use the full set of <em>LibreCAD</em> code only replacing
+<strong>main()</strong> function, from which the <em>LibreCAD</em> would run not as a graphical
+application, but as a console one, would print and would stop running. That
+approach appeared quite working, but after all that I got two binary files &ndash;
+<em>librecad</em> and <em>dxf2pdf</em>, both almost equal in size, and also some
+complications with the building process of both two <strong>main()</strong> functions.
+Considered such an approach somewhat weird and rejected it also, deciding
+finally to make a small injection of my code into <em>LibreCAD</em> itself.</p>
+
+<p><img src="/img/post/2018112001/3.png" alt="My code injection to LibreCAD" /></p>
+
+<p>Thus I added to the command line parameters list the <em>dxf2pdf</em> subcommand.
+If specified, <em>LibreCAD</em> would run in console mode and would print chosen
+<em>dxf</em> files to corresponding set or single <em>pdf</em> file.</p>
+
+<p>Unfortunately, as it turned out later, because of some specialties of
+<em>Qt</em> when running on <em>Windows</em>, unlike on <em>Linux</em>, there is something
+preventing printing in <em>Windows</em> resulting in no output at all. I&rsquo;m
+not using <em>Windows</em>, so I don&rsquo;t know what to do.</p>
+
+<p>At this time <em>dxf2pdf</em> could be run with the following parameters:</p>
+
+<pre><code>dxf2pdf usage: librecad dxf2pdf [options] &lt;dxf_files&gt;
+
+Print a bunch of DXF files to PDF file(s).
+
+Examples:
+
+  librecad dxf2pdf *.dxf    -- print all dxf files to pdf files with the same names.
+
+  librecad dxf2pdf -o some.pdf *.dxf    -- print all dxf files to 'some.pdf' file.
+
+Options:
+  -h, --help                  Displays this help.
+  -v, --version               Displays version information.
+  -a, --fit                   Auto fit and center drawing to page.
+  -c, --center                Auto center drawing on page.
+  -k, --grayscale             Print grayscale.
+  -m, --monochrome            Print monochrome (black/white).
+  -p, --paper &lt;WxH&gt;           Paper size (Width x Height) in mm.
+  -r, --resolution &lt;integer&gt;  Output resolution (DPI).
+  -s, --scale &lt;double&gt;        Output scale. E.g.: 0.01 (for 1:100 scale).
+  -o, --outfile &lt;file&gt;        Output PDF file.
+  -t, --directory &lt;path&gt;      Target output directory.
+
+Arguments:
+  &lt;dxf_files&gt;                 Input DXF file(s)
+
+</code></pre>
+
+<p>You can also create a link to <em>librecad</em> binary and name it <em>dxf2pdf</em>:</p>
+
+<pre><code>ln -s librecad dxf2pdf
+</code></pre>
+
+<p>Then you can run the command right away like this:</p>
+
+<pre><code>dxf2pdf -o some.pdf *.dxf
+</code></pre>
+
+<p>Certainly after creating such a tool I wanted to share it with the project
+on which it has strong dependency. This time, after making a
+<a href="https://github.com/LibreCAD/LibreCAD/pull/1023">pull request</a>
+my waiting was much longer. With every new day I felt like my code was
+too bad and would be rejected. But no, after about a week my code was
+merged. Hurray, now I don&rsquo;t have to print each of about half of a hundred <em>dxf</em>
+files to <em>pdf</em> manually during hours, everything&rsquo;s done in a few seconds
+by a single press of the [Enter] key!</p>
+
+
+      
+      
+    </article>
+     <aside><div id="disqus_thread"></div></aside>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'xanderdin';
+    var disqus_config = function () {
+      
+        this.language = 'en';
+      
+      
+        this.page.identifier = 'lets-lubricate-the-wheel.en';
+      
+    };
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+  </main>
+
+  <nav class="pagination-single">
+    
+      <span class="previous">&larr; <a href="http://xanderdin.github.io/en/post/lets-reinvent-the-wheel/" rel="prev">What if I reinvent the &#34;wheel&#34;?!</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      
+      
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
+

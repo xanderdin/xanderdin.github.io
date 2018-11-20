@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/</loc>
+    <lastmod>2018-11-20T20:00:00+03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://xanderdin.github.io/en/post/lets-lubricate-the-wheel/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="http://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/"
+                />
+  </url>
+  
+  <url>
     <loc>http://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/</loc>
     <lastmod>2018-11-17T22:00:00+03:00</lastmod>
     <xhtml:link
@@ -34,7 +49,7 @@
   
   <url>
     <loc>http://xanderdin.github.io/ru/</loc>
-    <lastmod>2018-11-17T22:00:00+03:00</lastmod>
+    <lastmod>2018-11-20T20:00:00+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -65,7 +80,7 @@
   
   <url>
     <loc>http://xanderdin.github.io/ru/post/</loc>
-    <lastmod>2018-11-17T22:00:00+03:00</lastmod>
+    <lastmod>2018-11-20T20:00:00+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

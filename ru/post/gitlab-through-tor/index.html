@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    GitLab через Tor | @xanderdin
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://xanderdin.github.io/ru/post/gitlab-through-tor/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+  
+  <link href="http://xanderdin.github.io/index.xml" rel="alternate" type="application/rss+xml" title="@xanderdin" />
+  <link href="http://xanderdin.github.io/index.xml" rel="feed" type="application/rss+xml" title="@xanderdin" />
+
+  
+  
+
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-129409239-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://xanderdin.github.io/">@xanderdin</a></h1>
+        
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          
+          
+          
+          
+          <li>[<a href="http://xanderdin.github.io/en/post/gitlab-through-tor/">en</a>]</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>GitLab через Tor</h1>
+      <div class="meta">
+        2019-01-03 &nbsp;
+        
+        
+          <br>
+          Переводы:
+          
+            [<a href="http://xanderdin.github.io/en/post/gitlab-through-tor/">en</a>]
+          
+        
+      </div>
+    </div>
+    <article>
+      <p>После того как <a href="https://gitlab.com">GitLab.com</a>
+<a href="https://about.gitlab.com/2018/07/19/gcp-move-update/">переехал</a> на
+<em>Google Cloud Platform</em>, который
+в свою очередь блокирует подключения из некоторых регионов планеты,
+у меня возникли проблемы с доступом к своим и чужим репозиториям,
+размещённым на <a href="https://gitlab.com">GitLab.com</a>.
+Имея под рукой <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a>,
+быстрым для меня решением оказалось его использование и для доступа к
+<a href="https://gitlab.com">GitLab.com</a>. Всё что необходимо, это запустить
+<a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a> и указать <strong>git</strong>-у использовать его
+в качестве прокси.</p>
+
+<p>Для этого нужно настроить (если ещё не настроен) доступ к удаленному
+репозиторию по протоколу <code>https</code>. Я для этой цели использую отдельное имя
+<code>origin_https</code>:</p>
+
+<pre><code>git remote add origin_https https://USER@gitlab.com/USER-OR-GROUP/REPO.git
+</code></pre>
+
+<p>Теперь достаточно присвоить переменной окружения <code>HTTPS_PROXY</code>, URL
+локального прокси (<code>socks5://127.0.0.1:9150</code>), доступного после старта
+<a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a>, и выполнить требуемую команду <strong>git</strong>:</p>
+
+<pre><code>HTTPS_PROXY=&quot;socks5://127.0.0.1:9150&quot; git ... origin_https ...
+</code></pre>
+
+<p>Или для последовательности команд <strong>git</strong>:</p>
+
+<pre><code>export HTTPS_PROXY=&quot;socks5://127.0.0.1:9150&quot;
+git ... origin_https ...
+git ... origin_https ...
+...
+</code></pre>
+
+<p>Можно также записать URL прокси в локальную или глобальную конфигурацию
+<strong>git</strong>:</p>
+
+<pre><code>git config (--global|--local) http.proxy socks5://127.0.0.1:9150
+</code></pre>
+
+<p>Для отмены конфигурации достаточно выполнить:</p>
+
+<pre><code>git config (--global|--local) --unset http.proxy
+</code></pre>
+
+<p>Ещё вариант конфигурации &ndash; это установка значения <code>remote.&lt;name&gt;.proxy</code>.
+В моём случае это:</p>
+
+<pre><code>git config remote.origin_https.proxy socks5://127.0.0.1:9150
+</code></pre>
+
+<p>Для отмены конфигурации:</p>
+
+<pre><code>git config --unset remote.origin_https.proxy
+</code></pre>
+
+<p>Успехов!</p>
+
+
+      
+      
+    </article>
+     <aside><div id="disqus_thread"></div></aside>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'xanderdin';
+    var disqus_config = function () {
+      
+        this.language = 'ru';
+      
+      
+        this.page.identifier = 'gitlab-through-tor.ru';
+      
+    };
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+  </main>
+
+  <nav class="pagination-single">
+    
+      <span class="previous">&larr; <a href="http://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/" rel="prev">А не смазать ли мне мои &#34;колеса&#34;?</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      
+      
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
+

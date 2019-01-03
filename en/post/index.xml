@@ -6,10 +6,20 @@
     <description>Recent content in Posts on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Nov 2018 20:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 03 Jan 2019 10:00:00 +0300</lastBuildDate>
     
 	<atom:link href="http://xanderdin.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitLab through Tor</title>
+      <link>http://xanderdin.github.io/en/post/gitlab-through-tor/</link>
+      <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
+      
+      <guid>http://xanderdin.github.io/en/post/gitlab-through-tor/</guid>
+      <description>When GitLab.com moved to Google Cloud Platform, which in turn is blocking connections from some places of our planet, I got troubles accessing my repositories and others hosted on GitLab.com. Having Tor Browser at hand, the quickies solution for me was using it for accessing GitLab.com. All I needed was running Tor Browser and telling git to use it as a proxy.
+To make it work, first you need to tell git to use https for remote repository access (if not already configured so).</description>
+    </item>
     
     <item>
       <title>What if I lubricate my &#34;wheel&#34;?</title>

@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on @xanderdin</title>
-    <link>http://xanderdin.github.io/en/post/</link>
+    <link>https://xanderdin.github.io/en/post/</link>
     <description>Recent content in Posts on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 03 Jan 2019 10:00:00 +0300</lastBuildDate>
     
-	<atom:link href="http://xanderdin.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://xanderdin.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GitLab through Tor</title>
-      <link>http://xanderdin.github.io/en/post/gitlab-through-tor/</link>
+      <link>https://xanderdin.github.io/en/post/gitlab-through-tor/</link>
       <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
       
-      <guid>http://xanderdin.github.io/en/post/gitlab-through-tor/</guid>
+      <guid>https://xanderdin.github.io/en/post/gitlab-through-tor/</guid>
       <description>When GitLab.com moved to Google Cloud Platform, which in turn is blocking connections from some places of our planet, I got troubles accessing my repositories and others hosted on GitLab.com. Having Tor Browser at hand, the quickies solution for me was using it for accessing GitLab.com. All I needed was running Tor Browser and telling git to use it as a proxy.
 To make it work, first you need to tell git to use https for remote repository access (if not already configured so).</description>
     </item>
     
     <item>
       <title>What if I lubricate my &#34;wheel&#34;?</title>
-      <link>http://xanderdin.github.io/en/post/lets-lubricate-the-wheel/</link>
+      <link>https://xanderdin.github.io/en/post/lets-lubricate-the-wheel/</link>
       <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
       
-      <guid>http://xanderdin.github.io/en/post/lets-lubricate-the-wheel/</guid>
+      <guid>https://xanderdin.github.io/en/post/lets-lubricate-the-wheel/</guid>
       <description>As I related in my previous article, I got a sudden urge to automate my process of preparation of drawings. Automatic enumeration &amp;ndash; perfect, but now I need to prepare those sheets for printing somehow.
 These days my main tool for drawing is LibreCAD. When I was choosing it, one of the criterias among others was certainly its freeness and open sources. And at this time the advantage of open source was shown in its full strength.</description>
     </item>
     
     <item>
       <title>What if I reinvent the &#34;wheel&#34;?!</title>
-      <link>http://xanderdin.github.io/en/post/lets-reinvent-the-wheel/</link>
+      <link>https://xanderdin.github.io/en/post/lets-reinvent-the-wheel/</link>
       <pubDate>Sat, 17 Nov 2018 22:00:00 +0300</pubDate>
       
-      <guid>http://xanderdin.github.io/en/post/lets-reinvent-the-wheel/</guid>
+      <guid>https://xanderdin.github.io/en/post/lets-reinvent-the-wheel/</guid>
       <description>Olga, my wife is a professional artist and an interior designer. She&amp;rsquo;s using brushes, paints and pencils in a perfect way. But when it comes to a computer the matters become a little bit worse. Nevertheless, she mastered a couple of graphical applications and even such a big &amp;ldquo;monster&amp;rdquo; for 3D modeling as Blender!
 But for the interior design neighther drawing a picture nor even building a 3D model is quite enough.</description>
     </item>
     
     <item>
       <title>Healing the freezing of Jiayu G2F phone</title>
-      <link>http://xanderdin.github.io/en/post/healing-the-freezing-of-jiayu-g2f-phone/</link>
+      <link>https://xanderdin.github.io/en/post/healing-the-freezing-of-jiayu-g2f-phone/</link>
       <pubDate>Sun, 25 Oct 2015 14:04:58 +0300</pubDate>
       
-      <guid>http://xanderdin.github.io/en/post/healing-the-freezing-of-jiayu-g2f-phone/</guid>
+      <guid>https://xanderdin.github.io/en/post/healing-the-freezing-of-jiayu-g2f-phone/</guid>
       <description>I ordered a Jiayu G2F WCDMA phone with 1Gb RAM and 4Gb ROM at Aliexpress. The phone is pretty cool but it has a very disappointing problem - it freezes very often without any visible reason. Searching on the web revealed that this problem pertains to the whole model and not exclusively to my device. I purchased the phone for my daughter and she liked it very much, so we didn&amp;rsquo;t want sending it back to seller.</description>
     </item>
     

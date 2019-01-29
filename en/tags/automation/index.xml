@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>automation on @xanderdin</title>
+    <link>https://xanderdin.github.io/en/tags/automation/</link>
+    <description>Recent content in automation on @xanderdin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 20 Nov 2018 20:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="https://xanderdin.github.io/en/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What if I lubricate my &#34;wheel&#34;?</title>
+      <link>https://xanderdin.github.io/en/post/lets-lubricate-the-wheel/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/post/lets-lubricate-the-wheel/</guid>
+      <description>As I related in my previous article, I got a sudden urge to automate my process of preparation of drawings. Automatic enumeration &amp;ndash; perfect, but now I need to prepare those sheets for printing somehow.
+These days my main tool for drawing is LibreCAD. When I was choosing it, one of the criterias among others was certainly its freeness and open sources. And at this time the advantage of open source was shown in its full strength.</description>
+    </item>
+    
+    <item>
+      <title>What if I reinvent the &#34;wheel&#34;?!</title>
+      <link>https://xanderdin.github.io/en/post/lets-reinvent-the-wheel/</link>
+      <pubDate>Sat, 17 Nov 2018 22:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/post/lets-reinvent-the-wheel/</guid>
+      <description>Olga, my wife is a professional artist and an interior designer. She&amp;rsquo;s using brushes, paints and pencils in a perfect way. But when it comes to a computer the matters become a little bit worse. Nevertheless, she mastered a couple of graphical applications and even such a big &amp;ldquo;monster&amp;rdquo; for 3D modeling as Blender!
+But for the interior design neighther drawing a picture nor even building a 3D model is quite enough.</description>
+    </item>
+    
+  </channel>
+</rss>

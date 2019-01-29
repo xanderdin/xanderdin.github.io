@@ -2,13 +2,113 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on @xanderdin</title>
-    <link>http://xanderdin.github.io/en/tags/</link>
+    <link>https://xanderdin.github.io/en/tags/</link>
     <description>Recent content in Tags on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Sun, 25 Oct 2015 14:04:58 +0300</lastBuildDate>
     
-	<atom:link href="http://xanderdin.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://xanderdin.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android</title>
+      <link>https://xanderdin.github.io/en/tags/android/</link>
+      <pubDate>Sun, 25 Oct 2015 14:04:58 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jiayu G2F</title>
+      <link>https://xanderdin.github.io/en/tags/jiayu-g2f/</link>
+      <pubDate>Sun, 25 Oct 2015 14:04:58 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/jiayu-g2f/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LibreCAD</title>
+      <link>https://xanderdin.github.io/en/tags/librecad/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/librecad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>automation</title>
+      <link>https://xanderdin.github.io/en/tags/automation/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flashing</title>
+      <link>https://xanderdin.github.io/en/tags/flashing/</link>
+      <pubDate>Sun, 25 Oct 2015 14:04:58 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/flashing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://xanderdin.github.io/en/tags/git/</link>
+      <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab</title>
+      <link>https://xanderdin.github.io/en/tags/gitlab/</link>
+      <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open source</title>
+      <link>https://xanderdin.github.io/en/tags/open-source/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/open-source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scripting</title>
+      <link>https://xanderdin.github.io/en/tags/scripting/</link>
+      <pubDate>Sat, 17 Nov 2018 22:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/scripting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>software development</title>
+      <link>https://xanderdin.github.io/en/tags/software-development/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/software-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tor</title>
+      <link>https://xanderdin.github.io/en/tags/tor/</link>
+      <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/tor/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

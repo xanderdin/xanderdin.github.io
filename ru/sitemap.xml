@@ -3,125 +3,262 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://xanderdin.github.io/ru/post/gitlab-through-tor/</loc>
+    <loc>https://xanderdin.github.io/ru/post/gitlab-through-tor/</loc>
     <lastmod>2019-01-03T10:00:00+03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://xanderdin.github.io/en/post/gitlab-through-tor/"
+                href="https://xanderdin.github.io/en/post/gitlab-through-tor/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="http://xanderdin.github.io/ru/post/gitlab-through-tor/"
+                href="https://xanderdin.github.io/ru/post/gitlab-through-tor/"
                 />
   </url>
   
   <url>
-    <loc>http://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/</loc>
+    <loc>https://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/</loc>
     <lastmod>2018-11-20T20:00:00+03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://xanderdin.github.io/en/post/lets-lubricate-the-wheel/"
+                href="https://xanderdin.github.io/en/post/lets-lubricate-the-wheel/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="http://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/"
+                href="https://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/"
                 />
   </url>
   
   <url>
-    <loc>http://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/</loc>
+    <loc>https://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/</loc>
     <lastmod>2018-11-17T22:00:00+03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://xanderdin.github.io/en/post/lets-reinvent-the-wheel/"
+                href="https://xanderdin.github.io/en/post/lets-reinvent-the-wheel/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="http://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/"
+                href="https://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/"
                 />
   </url>
   
   <url>
-    <loc>http://xanderdin.github.io/ru/post/healing-the-freezing-of-jiayu-g2f-phone/</loc>
+    <loc>https://xanderdin.github.io/ru/post/healing-the-freezing-of-jiayu-g2f-phone/</loc>
     <lastmod>2015-10-25T14:04:58+03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://xanderdin.github.io/en/post/healing-the-freezing-of-jiayu-g2f-phone/"
+                href="https://xanderdin.github.io/en/post/healing-the-freezing-of-jiayu-g2f-phone/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="http://xanderdin.github.io/ru/post/healing-the-freezing-of-jiayu-g2f-phone/"
+                href="https://xanderdin.github.io/ru/post/healing-the-freezing-of-jiayu-g2f-phone/"
                 />
   </url>
   
   <url>
-    <loc>http://xanderdin.github.io/ru/</loc>
+    <loc>https://xanderdin.github.io/ru/</loc>
     <lastmod>2019-01-03T10:00:00+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://xanderdin.github.io/en/"
+                href="https://xanderdin.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="http://xanderdin.github.io/ru/"
+                href="https://xanderdin.github.io/ru/"
                 />
   </url>
   
   <url>
-    <loc>http://xanderdin.github.io/ru/categories/</loc>
+    <loc>https://xanderdin.github.io/ru/tags/android/</loc>
+    <lastmod>2015-10-25T14:04:58+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://xanderdin.github.io/en/categories/"
+                href="https://xanderdin.github.io/en/tags/android/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="http://xanderdin.github.io/ru/categories/"
+                href="https://xanderdin.github.io/ru/tags/android/"
                 />
   </url>
   
   <url>
-    <loc>http://xanderdin.github.io/ru/post/</loc>
+    <loc>https://xanderdin.github.io/ru/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/jiayu-g2f/</loc>
+    <lastmod>2015-10-25T14:04:58+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/jiayu-g2f/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/jiayu-g2f/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/librecad/</loc>
+    <lastmod>2018-11-20T20:00:00+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/librecad/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/librecad/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/post/</loc>
     <lastmod>2019-01-03T10:00:00+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://xanderdin.github.io/en/post/"
+                href="https://xanderdin.github.io/en/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="http://xanderdin.github.io/ru/post/"
+                href="https://xanderdin.github.io/ru/post/"
                 />
   </url>
   
   <url>
-    <loc>http://xanderdin.github.io/ru/tags/</loc>
+    <loc>https://xanderdin.github.io/ru/tags/</loc>
+    <lastmod>2015-10-25T14:04:58+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://xanderdin.github.io/en/tags/"
+                href="https://xanderdin.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="http://xanderdin.github.io/ru/tags/"
+                href="https://xanderdin.github.io/ru/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/git/</loc>
+    <lastmod>2019-01-03T10:00:00+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/git/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/git/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/gitlab/</loc>
+    <lastmod>2019-01-03T10:00:00+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/gitlab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/gitlab/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/open-source/</loc>
+    <lastmod>2018-11-20T20:00:00+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/open-source/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/open-source/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/tor/</loc>
+    <lastmod>2019-01-03T10:00:00+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/tor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/tor/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/</loc>
+    <lastmod>2018-11-20T20:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0/</loc>
+    <lastmod>2015-10-25T14:04:58+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D0%BF%D0%BE/</loc>
+    <lastmod>2018-11-20T20:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B/</loc>
+    <lastmod>2018-11-17T22:00:00+03:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

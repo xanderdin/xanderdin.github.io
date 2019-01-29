@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on @xanderdin</title>
-    <link>http://xanderdin.github.io/ru/post/</link>
+    <link>https://xanderdin.github.io/ru/post/</link>
     <description>Recent content in Posts on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <lastBuildDate>Thu, 03 Jan 2019 10:00:00 +0300</lastBuildDate>
     
-	<atom:link href="http://xanderdin.github.io/ru/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://xanderdin.github.io/ru/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GitLab через Tor</title>
-      <link>http://xanderdin.github.io/ru/post/gitlab-through-tor/</link>
+      <link>https://xanderdin.github.io/ru/post/gitlab-through-tor/</link>
       <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
       
-      <guid>http://xanderdin.github.io/ru/post/gitlab-through-tor/</guid>
+      <guid>https://xanderdin.github.io/ru/post/gitlab-through-tor/</guid>
       <description>После того как GitLab.com переехал на Google Cloud Platform, который в свою очередь блокирует подключения из некоторых регионов планеты, у меня возникли проблемы с доступом к своим и чужим репозиториям, размещённым на GitLab.com. Имея под рукой Tor Browser, быстрым для меня решением оказалось его использование и для доступа к GitLab.com. Всё что необходимо, это запустить Tor Browser и указать git-у использовать его в качестве прокси.
 Для этого нужно настроить (если ещё не настроен) доступ к удаленному репозиторию по протоколу https.</description>
     </item>
     
     <item>
-      <title>А не смазать ли мне мои &#34;колеса&#34;?</title>
-      <link>http://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/</link>
+      <title>А не смазать ли мне мои &#34;колёса&#34;?</title>
+      <link>https://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/</link>
       <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
       
-      <guid>http://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/</guid>
+      <guid>https://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/</guid>
       <description>Как рассказал в предыдущей публикации, овладело мной внезапно желание автоматизировать свой процесс подготовки чертежей. Автоматическая нумерация листов &amp;ndash; отлично, но теперь мне их нужно как-то подготовить к печати.
 На сегодняшний день мой основной инструмент для черчения это LibreCAD. Когда делал выбор в его пользу, среди прочих, были конечно же и такие критерии как бесплатность и открытость исходных кодов. И на этот раз преимущество программного продукта с открытым исходным кодом проявилось в полной мере.</description>
     </item>
     
     <item>
       <title>А не изобрести ли мне &#34;велосипед&#34;?!</title>
-      <link>http://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/</link>
+      <link>https://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/</link>
       <pubDate>Sat, 17 Nov 2018 22:00:00 +0300</pubDate>
       
-      <guid>http://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/</guid>
+      <guid>https://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/</guid>
       <description>Ольга, моя жена, &amp;ndash; профессиональный художник и дизайнер интерьеров. Она отлично владеет кистями, красками и карандашами. Но вот с компьютером дела обстоят несколько хуже. И тем не менее она смогла освоить ряд программ для компьютерной графики и даже такого крутого &amp;ldquo;монстра&amp;rdquo; для 3D моделирования как Blender!
 Но для дизайна интерьера недостаточно нарисовать картинку, и даже недостаточно построить 3D модель. Строителям нужны точные чертежи. Но вот с программами для черчения не задалось у неё как-то, и чертила она как водится, обычным карандашом по обычной бумаге.</description>
     </item>
     
     <item>
       <title>Лечение телефона Jiayu G2F от зависаний</title>
-      <link>http://xanderdin.github.io/ru/post/healing-the-freezing-of-jiayu-g2f-phone/</link>
+      <link>https://xanderdin.github.io/ru/post/healing-the-freezing-of-jiayu-g2f-phone/</link>
       <pubDate>Sun, 25 Oct 2015 14:04:58 +0300</pubDate>
       
-      <guid>http://xanderdin.github.io/ru/post/healing-the-freezing-of-jiayu-g2f-phone/</guid>
+      <guid>https://xanderdin.github.io/ru/post/healing-the-freezing-of-jiayu-g2f-phone/</guid>
       <description>Заказал на Aliexpress телефон Jiayu G2F WCDMA, модель с 1Гб RAM и 4Гб ROM. Телефончик оказался неплохой, но к сожалению обнаружилась в нем одна досадная проблема - он очень часто зависал намертво без каких-либо видимых на то причин. Поиск в интернете показал, что эта проблема не только моего экземпляра, а присуща вообще этой модели в целом. Телефон я покупал для моей дочки и ей он очень понравился, поэтому отправлять его обратно продавцу не хотелось.</description>
     </item>
     

@@ -1,0 +1,15 @@
+article p {
+    text-align: justify;
+}
+
+
+/* for Mainroad theme */
+
+article div.list__excerpt {
+    text-align: justify;
+}
+
+.main__title {
+    text-transform: uppercase;
+}
+

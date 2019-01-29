@@ -2,13 +2,113 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on @xanderdin</title>
-    <link>http://xanderdin.github.io/ru/tags/</link>
+    <link>https://xanderdin.github.io/ru/tags/</link>
     <description>Recent content in Tags on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
+    <lastBuildDate>Sun, 25 Oct 2015 14:04:58 +0300</lastBuildDate>
     
-	<atom:link href="http://xanderdin.github.io/ru/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://xanderdin.github.io/ru/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android</title>
+      <link>https://xanderdin.github.io/ru/tags/android/</link>
+      <pubDate>Sun, 25 Oct 2015 14:04:58 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jiayu G2F</title>
+      <link>https://xanderdin.github.io/ru/tags/jiayu-g2f/</link>
+      <pubDate>Sun, 25 Oct 2015 14:04:58 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/jiayu-g2f/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LibreCAD</title>
+      <link>https://xanderdin.github.io/ru/tags/librecad/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/librecad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://xanderdin.github.io/ru/tags/git/</link>
+      <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab</title>
+      <link>https://xanderdin.github.io/ru/tags/gitlab/</link>
+      <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open source</title>
+      <link>https://xanderdin.github.io/ru/tags/open-source/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/open-source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tor</title>
+      <link>https://xanderdin.github.io/ru/tags/tor/</link>
+      <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/tor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>автоматизация</title>
+      <link>https://xanderdin.github.io/ru/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>прошивка</title>
+      <link>https://xanderdin.github.io/ru/tags/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0/</link>
+      <pubDate>Sun, 25 Oct 2015 14:04:58 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>разработка ПО</title>
+      <link>https://xanderdin.github.io/ru/tags/%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D0%BF%D0%BE/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D0%BF%D0%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>скрипты</title>
+      <link>https://xanderdin.github.io/ru/tags/%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B/</link>
+      <pubDate>Sat, 17 Nov 2018 22:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/tags/%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

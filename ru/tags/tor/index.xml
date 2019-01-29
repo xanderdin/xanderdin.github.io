@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tor on @xanderdin</title>
+    <link>https://xanderdin.github.io/ru/tags/tor/</link>
+    <description>Recent content in tor on @xanderdin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <lastBuildDate>Thu, 03 Jan 2019 10:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="https://xanderdin.github.io/ru/tags/tor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GitLab через Tor</title>
+      <link>https://xanderdin.github.io/ru/post/gitlab-through-tor/</link>
+      <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/post/gitlab-through-tor/</guid>
+      <description>После того как GitLab.com переехал на Google Cloud Platform, который в свою очередь блокирует подключения из некоторых регионов планеты, у меня возникли проблемы с доступом к своим и чужим репозиториям, размещённым на GitLab.com. Имея под рукой Tor Browser, быстрым для меня решением оказалось его использование и для доступа к GitLab.com. Всё что необходимо, это запустить Tor Browser и указать git-у использовать его в качестве прокси.
+Для этого нужно настроить (если ещё не настроен) доступ к удаленному репозиторию по протоколу https.</description>
+    </item>
+    
+  </channel>
+</rss>

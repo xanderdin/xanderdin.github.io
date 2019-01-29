@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>open source on @xanderdin</title>
+    <link>https://xanderdin.github.io/ru/tags/open-source/</link>
+    <description>Recent content in open source on @xanderdin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <lastBuildDate>Tue, 20 Nov 2018 20:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="https://xanderdin.github.io/ru/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>А не смазать ли мне мои &#34;колёса&#34;?</title>
+      <link>https://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/</link>
+      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/post/lets-lubricate-the-wheel/</guid>
+      <description>Как рассказал в предыдущей публикации, овладело мной внезапно желание автоматизировать свой процесс подготовки чертежей. Автоматическая нумерация листов &amp;ndash; отлично, но теперь мне их нужно как-то подготовить к печати.
+На сегодняшний день мой основной инструмент для черчения это LibreCAD. Когда делал выбор в его пользу, среди прочих, были конечно же и такие критерии как бесплатность и открытость исходных кодов. И на этот раз преимущество программного продукта с открытым исходным кодом проявилось в полной мере.</description>
+    </item>
+    
+    <item>
+      <title>А не изобрести ли мне &#34;велосипед&#34;?!</title>
+      <link>https://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/</link>
+      <pubDate>Sat, 17 Nov 2018 22:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/post/lets-reinvent-the-wheel/</guid>
+      <description>Ольга, моя жена, &amp;ndash; профессиональный художник и дизайнер интерьеров. Она отлично владеет кистями, красками и карандашами. Но вот с компьютером дела обстоят несколько хуже. И тем не менее она смогла освоить ряд программ для компьютерной графики и даже такого крутого &amp;ldquo;монстра&amp;rdquo; для 3D моделирования как Blender!
+Но для дизайна интерьера недостаточно нарисовать картинку, и даже недостаточно построить 3D модель. Строителям нужны точные чертежи. Но вот с программами для черчения не задалось у неё как-то, и чертила она как водится, обычным карандашом по обычной бумаге.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,26 @@
     <description>Recent content on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Jan 2019 10:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 25 Mar 2019 10:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://xanderdin.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My LibreCAD enhancements (October 2018 -- March 2019)</title>
+      <link>https://xanderdin.github.io/en/post/my-librecad-enhancements-20190325/</link>
+      <pubDate>Mon, 25 Mar 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/post/my-librecad-enhancements-20190325/</guid>
+      <description>&lt;p&gt;It is too fast running out of my head the memories of things I was investing
+my time and efforts into. So, after glancing on the history of my
+pull requests I decided to make a short report on them for the future
+remembrance. Most of the things described here are already merged into main
+&lt;a href=&#34;https://librecad.org&#34;&gt;LibreCAD&lt;/a&gt; branch, but some (at the moment of writing of this article) are
+still remaining as &amp;ldquo;Open&amp;rdquo; pull requests. Hope, they too would be merged soon.
+And here is the list of what I have done in the past few
+months to the benefits of &lt;a href=&#34;https://librecad.org&#34;&gt;LibreCAD&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>GitLab through Tor</title>

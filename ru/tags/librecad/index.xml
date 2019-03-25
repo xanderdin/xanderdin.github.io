@@ -6,10 +6,25 @@
     <description>Recent content in LibreCAD on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
-    <lastBuildDate>Tue, 20 Nov 2018 20:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 25 Mar 2019 10:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://xanderdin.github.io/ru/tags/librecad/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Мои доработки LibreCAD (Октябрь 2018 -- Март 2019)</title>
+      <link>https://xanderdin.github.io/ru/post/my-librecad-enhancements-20190325/</link>
+      <pubDate>Mon, 25 Mar 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/post/my-librecad-enhancements-20190325/</guid>
+      <description>&lt;p&gt;Как-то быстро вылетают из моей головы те вещи, которым я посвящал своё время
+и над которыми трудился. Пролистал историю своих пул-реквестов и решил
+составить небольшой отчёт на память. Подавляющее большинство из перечисленного
+уже включено в основную ветку &lt;a href=&#34;https://librecad.org&#34;&gt;LibreCAD&lt;/a&gt;, однако (на момент написания данной
+статьи) некоторые всё ещё остаются в состоянии открытых пул-реквестов. Очень
+надеюсь, что и они будут вскоре приняты тоже.  Итак, что было сделано мной за
+последние несполько месяцев для &lt;a href=&#34;https://librecad.org&#34;&gt;LibreCAD&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>А не смазать ли мне мои &#34;колёса&#34;?</title>

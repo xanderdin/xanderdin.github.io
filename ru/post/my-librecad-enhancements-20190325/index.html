@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Мои доработки LibreCAD (Октябрь 2018 -- Март 2019) - @xanderdin</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.54.0" />
+	<meta property="og:title" content="Мои доработки LibreCAD (Октябрь 2018 -- Март 2019)" />
+<meta property="og:description" content="Как-то быстро вылетают из моей головы те вещи, которым я посвящал своё время
+и над которыми трудился. Пролистал историю своих пул-реквестов и решил
+составить небольшой отчёт на память. Подавляющее большинство из перечисленного
+уже включено в основную ветку LibreCAD, однако (на момент написания данной
+статьи) некоторые всё ещё остаются в состоянии открытых пул-реквестов. Очень
+надеюсь, что и они будут вскоре приняты тоже.  Итак, что было сделано мной за
+последние несполько месяцев для LibreCAD." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xanderdin.github.io/ru/post/my-librecad-enhancements-20190325/" />
+<meta property="article:published_time" content="2019-03-25T10:00:00&#43;03:00"/>
+<meta property="article:modified_time" content="2019-03-25T10:00:00&#43;03:00"/>
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Мои доработки LibreCAD (Октябрь 2018 -- Март 2019)"/>
+<meta name="twitter:description" content="Как-то быстро вылетают из моей головы те вещи, которым я посвящал своё время
+и над которыми трудился. Пролистал историю своих пул-реквестов и решил
+составить небольшой отчёт на память. Подавляющее большинство из перечисленного
+уже включено в основную ветку LibreCAD, однако (на момент написания данной
+статьи) некоторые всё ещё остаются в состоянии открытых пул-реквестов. Очень
+надеюсь, что и они будут вскоре приняты тоже.  Итак, что было сделано мной за
+последние несполько месяцев для LibreCAD."/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-129409239-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/ru/" title="@xanderdin" rel="home">
+				<div class="logo__title">@xanderdin</div>
+				<div class="logo__tagline">Ну вот ещё один блог обо всём об этом</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Мои доработки LibreCAD (Октябрь 2018 -- Март 2019)</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2019-03-25T10:00:00">2019-03-25</time>
+</div>
+
+<div class="meta__item-translations meta__item">
+	<span class="meta__text">Переводы: <a class="meta__link" href="/en/post/my-librecad-enhancements-20190325/">EN</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			<p>Как-то быстро вылетают из моей головы те вещи, которым я посвящал своё время
+и над которыми трудился. Пролистал историю своих пул-реквестов и решил
+составить небольшой отчёт на память. Подавляющее большинство из перечисленного
+уже включено в основную ветку <a href="https://librecad.org">LibreCAD</a>, однако (на момент написания данной
+статьи) некоторые всё ещё остаются в состоянии открытых пул-реквестов. Очень
+надеюсь, что и они будут вскоре приняты тоже.  Итак, что было сделано мной за
+последние несполько месяцев для <a href="https://librecad.org">LibreCAD</a>.</p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Добавлены кнопки в <em>Layer List</em>, позволяющие блокировать или
+разблокировать одновременно все слои
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1018">#1018</a>).</p>
+
+<p><img src="/img/post/2019032501/01.png#center" alt="Кнопки блокировки/разблокировки всех слоёв" /></p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Добавлена команда <strong>dxf2pdf</strong> для запуска <a href="https://librecad.org">LibreCAD</a> в консоли и преобразования
+множества <em>dxf</em> файлов в соответствующие один или несколько <em>pdf</em> файлов
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1023">#1023</a>).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ librecad dxf2pdf --help
+
+Usage: librecad [options] &lt;dxf_files&gt;
+
+dxf2pdf usage: librecad dxf2pdf [options] &lt;dxf_files&gt;
+
+Print a bunch of DXF files to PDF file(s).
+
+Examples:
+
+  librecad dxf2pdf *.dxf    -- print all dxf files to pdf files with the same names.
+
+  librecad dxf2pdf -o some.pdf *.dxf    -- print all dxf files to &#39;some.pdf&#39; file.
+
+Options:
+  -h, --help                  Displays this help.
+  -v, --version               Displays version information.
+  -a, --fit                   Auto fit and center drawing to page.
+  -c, --center                Auto center drawing on page.
+  -k, --grayscale             Print grayscale.
+  -m, --monochrome            Print monochrome (black/white).
+  -p, --paper &lt;WxH&gt;           Paper size (Width x Height) in mm.
+  -r, --resolution &lt;integer&gt;  Output resolution (DPI).
+  -s, --scale &lt;double&gt;        Output scale. E.g.: 0.01 (for 1:100 scale).
+  -o, --outfile &lt;file&gt;        Output PDF file.
+  -t, --directory &lt;path&gt;      Target output directory.
+
+Arguments:
+  &lt;dxf_files&gt;                 Input DXF file(s)</pre></div>
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Выпущен <a href="https://github.com/xanderdin/LibreCAD_dxf2pdf_standalone">набор патчей</a>,
+который позволяет собрать <strong>dxf2pdf</strong> отдельной утилитой, которая для своего
+запуска не требует запущенного работающего X сервера (библиотеки X сервера
+всё равно однако должны присутствовать в системе). Это удобно, если есть
+необходимость запускать <strong>dxf2pdf</strong> на удалённом сервере или,
+к примеру, в <a href="https://docker.com">Docker</a> контейнере.</p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Исправлено назначение полей <em>Row Spacing</em> и <em>Column Spacing</em>
+(были перепутаны) в диалоге свойств блока
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1028">#1028</a>).</p>
+
+<p><img src="/img/post/2019032501/02.png#center" alt="Фактическое назначение полей" /></p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Исправлена ошибка, в результате которой блоки вставлялись не в текущий
+активный слой, а в слой &ldquo;0&rdquo;
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1030">#1030</a>).</p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Исправлена ошибка, в результате которой при вставке блока игнорировалось
+заданное значение поля <em>Scale Factor</em>
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1031">#1031</a>).</p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Добавлена возможность фильтрации блоков, по аналогии с фильтрацией слоёв
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1044">#1044</a>).</p>
+
+<p><img src="/img/post/2019032501/03.png#center" alt="Фильтрация блоков" /></p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Исправлен <a href="https://github.com/LibreCAD/LibreCAD/issues/819">баг</a>, в результате
+которого часть &ldquo;взорванных&rdquo; сущностей теряло свойства родительского объекта
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1046">#1046</a>).</p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Исправлена проблема (<a href="https://github.com/LibreCAD/LibreCAD/issues/592">#592</a>,
+<a href="https://github.com/LibreCAD/LibreCAD/issues/605">#605</a>,
+<a href="https://github.com/LibreCAD/LibreCAD/issues/705">#705</a>)
+игнорирования флага масштаба &ldquo;fixed&rdquo; при предпечатном
+просмотре документа. Также сделано полное отображение листа при переключении
+в режим предпросмотра
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1050">#1050</a>).</p>
+
+<p><img src="/img/post/2019032501/04.png#center" alt="Предпросмотр" /></p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Добавлено отображение статуса изменения документа в заголовке <a href="https://librecad.org">LibreCAD</a> и
+списке редактируемых документов
+(<a href="https://github.com/LibreCAD/LibreCAD/pull/1059">#1059</a>).</p>
+
+<p><img src="/img/post/2019032501/05.png#center" alt="Отображение статуса изменения документа" /></p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Добавлены конфигурационные параметры, позволяющие инвертировать направление
+прокрутки мыши при использовании скролла совместно с клавишами Shift или Ctrl
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1061">#1061</a>).</p>
+
+<p><img src="/img/post/2019032501/06.png#center" alt="Параметры инвертирования прокрутки" /></p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Обнаружены и устранены причины нескольких SEGFAULT&rsquo;ов
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1032">#1032</a>,
+PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1052">#1052</a>).</p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Устранена <a href="https://github.com/LibreCAD/LibreCAD/issues/1049">ошибка</a>,
+в результате которой исчезали после модификации ранее отменённые сущности
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1069">#1069</a>).</p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Добавлена возможность множественного выбора слоёв и блоков в <em>Layer List</em> и
+<em>Block List</em>, позволяющего совершать действия одновременно с несколькими
+слоями или блоками (PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1071">#1071</a>).</p>
+
+<p><img src="/img/post/2019032501/08.png#center" alt="Удаление одновременно нескольких слоёв" /></p>
+
+<p><img src="/img/post/2019032501/07.png#center" alt="Множественный выбор слоёв" /></p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Добавлены кнопки обновления содержимого <em>Library Browser</em>, исключая
+таким образом необходимость перезапуска <a href="https://librecad.org">LibreCAD</a> после добавления новых
+файлов в библиотеку компонентов
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1072">#1072</a>).</p>
+
+<p><img src="/img/post/2019032501/09.png#center" alt="Кнопки обновления Library Browser" /></p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Добавлена проверка кэша перед записю конфигурации, которая значительно
+уменьшает количество дисковых операций записи и устраняет подтормаживание
+программы на некоторых операциях
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1078">#1078</a>).</p>
+
+<hr />
+
+<p><span style="color:#18FF8B; font-size:1.5em;">&#10003;</span>
+Исправлен код (issue <a href="https://github.com/LibreCAD/LibreCAD/issues/1065">#1065</a>),
+который в режиме &ldquo;Modify layer of selected entities&rdquo; приводил к изменению слоя
+не только для выделенного блока, но и для всех его подэлементов
+(PR<a href="https://github.com/LibreCAD/LibreCAD/pull/1081">#1081</a>).</p>
+
+<hr />
+
+<p>Все перечисленные доработки и исправления дают мне возможность использовать
+<a href="https://librecad.org">LibreCAD</a> быстрее и продуктивнее . Надеюсь, проделанная работа принесёт
+пользу не только мне, но и всем пользователям <a href="https://librecad.org">LibreCAD</a>!</p>
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/ru/tags/librecad/" rel="tag">LibreCAD</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/ru/tags/%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D0%BF%D0%BE/" rel="tag">разработка ПО</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/ru/tags/open-source/" rel="tag">open source</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/ru/post/gitlab-through-tor/" rel="prev"><span class="post-nav__caption">«&thinsp;Назад</span><p class="post-nav__post-title">GitLab через Tor</p></a>
+	</div>
+</nav>
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    this.page.identifier = '2019032501-my-librecad-enhancements.ru';
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "xanderdin" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="ПОИСК..." value="" name="q" aria-label="ПОИСК...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://xanderdin.github.io/" />
+	</form>
+</div>
+<div class="widget-languages widget">
+	<h4 class="widget__title">Языки</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget-languages__link widget__link" href="/en/">
+					<span class="widget-languages__link-btn widget__link-btn btn">EN</span>
+					<span class="widget-languages__link-text widget__link-text">English</span>
+				</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget-languages__link widget__link" href="/ru/">
+					<span class="widget-languages__link-btn widget__link-btn btn">RU</span>
+					<span class="widget-languages__link-text widget__link-text">Русский</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Недавние публикации</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/ru/post/my-librecad-enhancements-20190325/">Мои доработки LibreCAD (Октябрь 2018 -- Март 2019)</a></li>
+			<li class="widget__item"><a class="widget__link" href="/ru/post/gitlab-through-tor/">GitLab через Tor</a></li>
+			<li class="widget__item"><a class="widget__link" href="/ru/post/lets-lubricate-the-wheel/">А не смазать ли мне мои &#34;колёса&#34;?</a></li>
+			<li class="widget__item"><a class="widget__link" href="/ru/post/lets-reinvent-the-wheel/">А не изобрести ли мне &#34;велосипед&#34;?!</a></li>
+			<li class="widget__item"><a class="widget__link" href="/ru/post/healing-the-freezing-of-jiayu-g2f-phone/">Лечение телефона Jiayu G2F от зависаний</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Ярлыки</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/android" title="Android">Android</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/jiayu-g2f" title="Jiayu g2 f">Jiayu g2 f</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/librecad" title="Libre c a d">Libre c a d</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/git" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/gitlab" title="Gitlab">Gitlab</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/open-source" title="Open source">Open source</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/tor" title="Tor">Tor</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/%d0%b0%d0%b2%d1%82%d0%be%d0%bc%d0%b0%d1%82%d0%b8%d0%b7%d0%b0%d1%86%d0%b8%d1%8f" title="Автоматизация">Автоматизация</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/%d0%bf%d1%80%d0%be%d1%88%d0%b8%d0%b2%d0%ba%d0%b0" title="Прошивка">Прошивка</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/%d1%80%d0%b0%d0%b7%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%ba%d0%b0-%d0%bf%d0%be" title="Разработка п о">Разработка п о</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/%d1%81%d0%ba%d1%80%d0%b8%d0%bf%d1%82%d1%8b" title="Скрипты">Скрипты</a>
+	</div>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Социальные сети</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="LinkedIn" rel="noopener noreferrer" href="https://linkedin.com/in/xanderdin" target="_blank">
+				<svg class="widget-social__link-icon icon-linkedin" viewBox="0 0 352 352" width="24" height="24" fill="#fff"><path d="M0,40v272c0,21.9,18.1,40,40,40h272c21.9,0,40-18.1,40-40V40c0-21.9-18.1-40-40-40H40C18.1,0,0,18.1,0,40z M312,32 c4.6,0,8,3.4,8,8v272c0,4.6-3.4,8-8,8H40c-4.6,0-8-3.4-8-8V40c0-4.6,3.4-8,8-8H312z M59.5,87c0,15.2,12.3,27.5,27.5,27.5 c15.2,0,27.5-12.3,27.5-27.5c0-15.2-12.3-27.5-27.5-27.5C71.8,59.5,59.5,71.8,59.5,87z M187,157h-1v-21h-45v152h47v-75 c0-19.8,3.9-39,28.5-39c24.2,0,24.5,22.4,24.5,40v74h47v-83.5c0-40.9-8.7-72-56.5-72C208.5,132.5,193.3,145.1,187,157z M64,288h47.5 V136H64V288z"/></svg>
+				<span>LinkedIn</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/xanderdin" target="_blank">
+				<svg class="widget-social__link-icon icon-github" viewBox="0 0 384 374" width="24" height="24" fill="#fff"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2019 Александр Правдин.
+			<span class="footer__copyright-credits">Сгенерировано с использованием <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> и темы <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script></body>
+</html>

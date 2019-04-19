@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>job on @xanderdin</title>
+    <link>https://xanderdin.github.io/en/tags/job/</link>
+    <description>Recent content in job on @xanderdin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 13 Apr 2019 20:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="https://xanderdin.github.io/en/tags/job/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Pocket Tomtit</title>
+      <link>https://xanderdin.github.io/en/post/my-pocket-tomtit/</link>
+      <pubDate>Sat, 13 Apr 2019 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/post/my-pocket-tomtit/</guid>
+      <description>&lt;p&gt;I bet nobody of previous or current employees of &lt;a href=&#34;http://integral.ua&#34;&gt;&amp;ldquo;Integral&amp;rdquo;&lt;/a&gt; company
+is able to explain with absolute confidence until now,
+why &lt;a href=&#34;https://play.google.com/store/apps/details?id=my.pocket.tomtit&#34;&gt;&amp;ldquo;See All&amp;rdquo;&lt;/a&gt; mobile application in Google Play has
+&lt;code&gt;my.pocket.tomtit&lt;/code&gt; ID instead of something like &lt;code&gt;ua.integral.seeall&lt;/code&gt;.
+But having straight relation to the app, I&amp;rsquo;m going to tell some words
+about its roots.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

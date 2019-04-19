@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://xanderdin.github.io/en/post/my-pocket-tomtit/</loc>
+    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/post/my-pocket-tomtit/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/post/my-pocket-tomtit/"
+                />
+  </url>
+  
+  <url>
     <loc>https://xanderdin.github.io/en/post/my-librecad-enhancements-20190325/</loc>
     <lastmod>2019-03-25T10:00:00+03:00</lastmod>
     <xhtml:link
@@ -79,7 +94,7 @@
   
   <url>
     <loc>https://xanderdin.github.io/en/</loc>
-    <lastmod>2019-03-25T10:00:00+03:00</lastmod>
+    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -158,7 +173,7 @@
   
   <url>
     <loc>https://xanderdin.github.io/en/post/</loc>
-    <lastmod>2019-03-25T10:00:00+03:00</lastmod>
+    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -230,6 +245,18 @@
                 hreflang="en"
                 href="https://xanderdin.github.io/en/tags/gitlab/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/en/tags/job/</loc>
+    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/en/tags/memories/</loc>
+    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>

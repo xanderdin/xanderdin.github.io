@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://xanderdin.github.io/ru/post/my-pocket-tomtit/</loc>
+    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/post/my-pocket-tomtit/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/post/my-pocket-tomtit/"
+                />
+  </url>
+  
+  <url>
     <loc>https://xanderdin.github.io/ru/post/my-librecad-enhancements-20190325/</loc>
     <lastmod>2019-03-25T10:00:00+03:00</lastmod>
     <xhtml:link
@@ -79,7 +94,7 @@
   
   <url>
     <loc>https://xanderdin.github.io/ru/</loc>
-    <lastmod>2019-03-25T10:00:00+03:00</lastmod>
+    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -158,7 +173,7 @@
   
   <url>
     <loc>https://xanderdin.github.io/ru/post/</loc>
-    <lastmod>2019-03-25T10:00:00+03:00</lastmod>
+    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -259,8 +274,20 @@
   </url>
   
   <url>
+    <loc>https://xanderdin.github.io/ru/tags/%D0%B2%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F/</loc>
+    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://xanderdin.github.io/ru/tags/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0/</loc>
     <lastmod>2015-10-25T14:04:58+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/ru/tags/%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0/</loc>
+    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,10 +6,24 @@
     <description>Recent content on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
-    <lastBuildDate>Mon, 25 Mar 2019 10:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 13 Apr 2019 20:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://xanderdin.github.io/ru/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Моя Карманная Синица</title>
+      <link>https://xanderdin.github.io/ru/post/my-pocket-tomtit/</link>
+      <pubDate>Sat, 13 Apr 2019 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/post/my-pocket-tomtit/</guid>
+      <description>&lt;p&gt;Могу поспорить, что никто из бывших или нынешних сотрудников
+ПКБ &lt;a href=&#34;http://integral.ua&#34;&gt;&amp;ldquo;Интеграл&amp;rdquo;&lt;/a&gt; не смог бы объяснить достоверно, до сего момента,
+почему мобильное приложение &lt;a href=&#34;https://play.google.com/store/apps/details?id=my.pocket.tomtit&#34;&gt;&amp;ldquo;Вижу&amp;rdquo;&lt;/a&gt; в Google Play имеет
+идентификатор &lt;code&gt;my.pocket.tomtit&lt;/code&gt;, а не к примеру &lt;code&gt;ua.integral.seeall&lt;/code&gt;.
+Но имея к созданию этого приложения самое непосредственное
+отношение, расскажу немного о его происхождении.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Мои доработки LibreCAD (Октябрь 2018 -- Март 2019)</title>

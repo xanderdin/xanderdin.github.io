@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>работа on @xanderdin</title>
+    <link>https://xanderdin.github.io/ru/tags/%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0/</link>
+    <description>Recent content in работа on @xanderdin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <lastBuildDate>Sat, 13 Apr 2019 20:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="https://xanderdin.github.io/ru/tags/%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Моя Карманная Синица</title>
+      <link>https://xanderdin.github.io/ru/post/my-pocket-tomtit/</link>
+      <pubDate>Sat, 13 Apr 2019 20:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/post/my-pocket-tomtit/</guid>
+      <description>&lt;p&gt;Могу поспорить, что никто из бывших или нынешних сотрудников
+ПКБ &lt;a href=&#34;http://integral.ua&#34;&gt;&amp;ldquo;Интеграл&amp;rdquo;&lt;/a&gt; не смог бы объяснить достоверно, до сего момента,
+почему мобильное приложение &lt;a href=&#34;https://play.google.com/store/apps/details?id=my.pocket.tomtit&#34;&gt;&amp;ldquo;Вижу&amp;rdquo;&lt;/a&gt; в Google Play имеет
+идентификатор &lt;code&gt;my.pocket.tomtit&lt;/code&gt;, а не к примеру &lt;code&gt;ua.integral.seeall&lt;/code&gt;.
+Но имея к созданию этого приложения самое непосредственное
+отношение, расскажу немного о его происхождении.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

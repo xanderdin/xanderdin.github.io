@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>И кто сказал, что CI/CD только для софта? - @xanderdin</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.54.0" />
+	<meta property="og:title" content="И кто сказал, что CI/CD только для софта?" />
+<meta property="og:description" content="Недавно я гуглил на предмет использования CI/CD. Существует огромное
+количество статей на эту тему, но все они в основном о том, как
+применять эти практики в сфере разработки программного обеспечения.
+Неужели это единственная область, где эти подходы применимы? Конечно нет.
+Вот мой пример использования их в области, которая не относится к разработке
+программного обеспечения." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xanderdin.github.io/ru/post/cicd-for-artidea/" />
+<meta property="article:published_time" content="2019-06-01T10:00:00&#43;03:00"/>
+<meta property="article:modified_time" content="2019-06-01T10:00:00&#43;03:00"/>
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="И кто сказал, что CI/CD только для софта?"/>
+<meta name="twitter:description" content="Недавно я гуглил на предмет использования CI/CD. Существует огромное
+количество статей на эту тему, но все они в основном о том, как
+применять эти практики в сфере разработки программного обеспечения.
+Неужели это единственная область, где эти подходы применимы? Конечно нет.
+Вот мой пример использования их в области, которая не относится к разработке
+программного обеспечения."/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-129409239-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/ru/" title="@xanderdin" rel="home">
+				<div class="logo__title">@xanderdin</div>
+				<div class="logo__tagline">Ну вот ещё один блог обо всём об этом</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">И кто сказал, что CI/CD только для софта?</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2019-06-01T10:00:00">2019-06-01</time>
+</div>
+
+<div class="meta__item-translations meta__item">
+	<span class="meta__text">Переводы: <a class="meta__link" href="/en/post/cicd-for-artidea/">EN</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			<p>Недавно я гуглил на предмет использования CI/CD. Существует огромное
+количество статей на эту тему, но все они в основном о том, как
+применять эти практики в сфере разработки программного обеспечения.
+Неужели это единственная область, где эти подходы применимы? Конечно нет.
+Вот мой пример использования их в области, которая не относится к разработке
+программного обеспечения.</p>
+
+<h2 id="ситуация">Ситуация</h2>
+
+<p>Представьте себе небольшую студию дизайна интерьеров с небольшой командой
+дизайнеров. Их работа заключается в том, чтобы предоставить клиентам
+идеи, образы и технические чертежи, которые в последствии могут
+использовать строители для превращения идей в реальность. Создание
+технических чертежей является обычно завершающим этапом большинства
+дизайн проектов, когда абстрактные идеи трансформируются в фактические
+размеры и спецификации.</p>
+
+<p><img src="/img/post/2019060101/engineering-pictures-12.jpg#center" alt="Чертежи" /></p>
+
+<p>В своём производстве команда использует свободные программные инструменты
+с открытыми исходными кодами. Конечно, они сталкиваются с трудностями когда
+дело касается совместной работы над одним и тем же проектом. В результате
+тех трудностей обычно только один дизайнер работает над завершающим этапом
+проекта, в то время как остальные не принимают участия в этом этапе.
+Несомненно, это очень непродуктивно и увеличивает общее время процесса,
+делая как клиентов, так и самих членов команды не сильно-то счастливыми.</p>
+
+<p>Трудности исходят из того, как программное обеспечение, которое они
+используют, работает с листами чертежей. Каждый чертёж является отдельным
+файлом. Проект обычно состоит из 50 и более чертежей. И сборка всех тех
+чертежей, присваивание каждому листу своего номера, преобразование
+их в множество PDF файлов, и в конце-концов сборка их в единый PDF файл,
+всё это выполняется вручную, что является долгим по времени и
+потенциальным для появления ошибок (часы монотонной ручной работы).
+И пока все файлы не будут готовы и собраны, конечный результат нельзя
+легко увидеть, проверить и при необходимости скорректировать.</p>
+
+<p>Но благодаря тому, что используется программное обеспечение
+с открытым исходным кодом, такие инструменты могут быть
+<a href='https://xanderdin.github.io/ru/post/my-librecad-enhancements-20190325/' target="_blank">улучшены и дополнены</a>.
+Кроме того, другие инструменты с открытым исходным кодом могут быть
+использованы для того, чтобы помочь в искоренении описанных трудностей и
+созданию условий для более простой и удобной процедуры производства
+технической документации.</p>
+
+<h2 id="идея">Идея</h2>
+
+<p>В наше время из каждого угла слышно упоминание о практиках DevOps,
+организации CI/CD, эджайл методологиях в разработке программных продуктов.
+Почему бы не попробовать и не применить те же самые подходы в области,
+которая не связана с производством программного обеспечения? Давайте-ка
+попробуем посмотреть и представить, что можно сделать для описанной выше
+команды дизайнеров.</p>
+
+<p><strong>Цели:</strong></p>
+
+<ul>
+<li>Автоматизировать этап производства технический чертежей.</li>
+<li>Сделать возможным видеть результат в любое время производственного этапа.</li>
+<li>Обеспечить условия совместного сотрудничества для возможности вести работу
+параллельно.</li>
+</ul>
+
+<p><strong>Инструменты:</strong></p>
+
+<ul>
+<li><a href="https://git-scm.com/" target="_blank">Git</a></li>
+<li><a href="https://www.docker.com/" target="_blank">Docker</a></li>
+<li><a href="https://jenkins.io/" target="_blank">Jenkins</a></li>
+<li><a href="https://github.com/xanderdin/enumsheets" target="_blank">enumsheets</a></li>
+<li><a href="https://github.com/xanderdin/LibreCAD_dxf2pdf_standalone" target="_blank">dxf2pdf</a></li>
+</ul>
+
+<p>Все перечисленные инструменты будут работать на <code>Debian GNU/Linux (Stretch)</code>.
+Я подразумеваю о наличии подходящего компьютера, на котором <code>Docker</code> уже
+установлен и исправно работает.</p>
+
+<p><em>Примечание: ниже описан лишь упрощенный пример того, что можно
+воплотить в реальности.</em></p>
+
+<h2 id="примерный-производственный-процесс">Примерный производственный процесс</h2>
+
+<p>Дизайнеры подготавливают технические чертежи и коммитят их в свои
+локальные git-репозитории. После подготовки каждого нового листа
+технического чертежа они пушат (git push) свою работу в основной
+git-репозиторий. <code>Jenkins</code>, в конвейере (pipeline) извлекает
+чертежи из основного git-репозитория, обрабатывая их с помощью
+скрипта <code>enumsheets</code> вставляет нумерацию и другие данные в их основные
+надписи. Далее, обрабатывает пронумерованные листы с помощью инструмента
+<code>dxf2pdf</code>, конвертируя множество листов в единый PDF файл. Готовый PDF
+файл затем копируется в общую директорию, доступную всем членам команды.</p>
+
+<p>Для подготовки чертежей дизайнеры используют
+<a href="https://librecad.org" target="_blank">LibreCAD</a>, а также
+следуют требованиям <code>enumsheets</code> в отношении основной надписи листов.</p>
+
+<h2 id="воплощение">Воплощение</h2>
+
+<p>Для начала нужно создать Docker-образы для инструментов <code>enumsheets</code> и
+<code>dxf2pdf</code>. Для этого надо создать две директории где-нибудь в $HOME, одну
+для <code>enumsheets</code>, а другую для <code>dxf2pdf</code>. Также надо создать по два
+файла в каждой и этих директорий, <strong>Dockerfile</strong> и <strong>build.sh</strong>:</p>
+
+<p><strong>Dockerfile</strong> для <code>enumsheets</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">FROM python:3-alpine
+WORKDIR /app
+COPY enumsheets/enumsheets.py ./
+COPY enumsheets/config.ini ./
+COPY enumsheets/requirements.txt ./
+RUN pip install --no-cache-dir --trusted-host pypi.python.org -r ./requirements.txt
+ENV PATH=$PATH:/app
+CMD [&#34;sh&#34;]</pre></div>
+<p>Скрипт <strong>build.sh</strong> для <code>enumsheets</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+CWD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>
+
+<span style="color:#75715e"># enumsheets v1.0.1 commit:</span>
+COMMIT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;37789348564ae881acd54c8e3bc70cea5f8ebc65&#34;</span>
+
+<span style="color:#75715e"># clean</span>
+<span style="color:#f92672">[</span> -d enumsheets <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> rm -rf enumsheets
+
+<span style="color:#75715e"># clone</span>
+git clone https://github.com/xanderdin/enumsheets.git
+
+<span style="color:#75715e"># use particular commit</span>
+cd enumsheets
+git checkout -b <span style="color:#e6db74">&#34;commit_</span><span style="color:#e6db74">${</span>COMMIT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>COMMIT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>CWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># build</span>
+docker build ./ --tag<span style="color:#f92672">=</span>enumsheets</pre></div>
+<p>Требуется сделать <strong>build.sh</strong> исполнимым и запустить его:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">chmod +x build.sh
+./build.sh</pre></div>
+<p>Если сборка прошла успешно, мы получим Docker-образ для <code>enumsheets</code>.
+Для того чтобы убедится, что он существует, можно выполнить:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">docker image ls enumsheets</pre></div>
+<p>Далее, нужно перейти в директорию для <code>dxf2pdf</code>, создать <strong>Dockerfile</strong> и
+<strong>build.sh</strong> со следующим содержимым.</p>
+
+<p><strong>Dockerfile</strong> для <code>dxf2pdf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">FROM debian:stretch-slim
+
+COPY ./app /app
+
+RUN set -ex; \
+    apt-get update &amp;&amp; apt-get install -y --no-install-recommends \
+        libbsd0 \
+        libdouble-conversion1 \
+        libdrm2 \
+        libexpat1 \
+        libfreetype6 \
+        libgcc1 \
+        libglapi-mesa \
+        libglib2.0-0 \
+        libgl1-mesa-glx \
+        libgraphite2-3 \
+        libharfbuzz0b \
+        libicu57 \
+        libmuparser2v5 \
+        libpcre16-3 \
+        libpcre3 \
+        libpng16-16 \
+        libqt5core5a \
+        libqt5gui5 \
+        libqt5printsupport5 \
+        libqt5widgets5 \
+        libstdc++6 \
+        libx11-6 \
+        libx11-xcb1 \
+        libxau6 \
+        libxcb-dri2-0 \
+        libxcb-dri3-0 \
+        libxcb-glx0 \
+        libxcb-present0 \
+        libxcb1 \
+        libxcb-sync1 \
+        libxdamage1 \
+        libxdmcp6 \
+        libxext6 \
+        libxfixes3 \
+        libxshmfence1 \
+        libxxf86vm1 \
+        zlib1g \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+# Note: dxf2pdf must be called with full path specified (/app/dxf2pdf)
+# or it won&#39;t be able to find its resources. So, adding it to PATH does
+# not make sense.
+#ENV PATH $PATH:/app
+
+ENTRYPOINT [&#34;/app/dxf2pdf&#34;]</pre></div>
+<p>Скрипт <strong>build.sh</strong> для <code>dxf2pdf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+CWD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>
+
+<span style="color:#75715e"># dxf2pdf commit</span>
+COMMIT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;d01efb3f33d4cc257fa0bb6d68098193cc03fa19&#34;</span>
+
+<span style="color:#75715e"># clean</span>
+<span style="color:#f92672">[</span> -d ./app <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> rm -rf ./app
+<span style="color:#f92672">[</span> -d ./LibreCAD_dxf2pdf_standalone <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> rm -rf ./LibreCAD_dxf2pdf_standalone
+
+<span style="color:#75715e"># clone</span>
+git clone https://github.com/xanderdin/LibreCAD_dxf2pdf_standalone.git
+
+<span style="color:#75715e"># build dxf2pdf</span>
+cd ./LibreCAD_dxf2pdf_standalone
+git checkout -b <span style="color:#e6db74">&#34;commit_</span><span style="color:#e6db74">${</span>COMMIT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>COMMIT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+./prepare.sh
+mkdir build
+cd build
+cmake ../LibreCAD
+make -j <span style="color:#ae81ff">4</span>
+mv OUT <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>CWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/app&#34;</span>
+cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>CWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># build docker image</span>
+docker build ./ --tag<span style="color:#f92672">=</span>dxf2pdf</pre></div>
+<p>Требуется сделать <strong>build.sh</strong> исполнимым и запустить его:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">chmod +x build.sh
+./build.sh</pre></div>
+<p>Если сборка прошла успешно, мы получим Docker-образ для <code>dxf2pdf</code>.
+Для того чтобы убедится, что он существует, можно выполнить:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">docker image ls dxf2pdf</pre></div>
+<h3 id="директории-для-общего-хранилища">Директории для общего хранилища</h3>
+
+<p>Ради простоты этого примера я создам основной git-репозиторий на том же
+самом компьютере, на котором запущено и всё остальное. Мои директории
+для совместного доступа будут выглядеть так:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">/home/000/artidea/proj      --&gt;  основная директория
+/home/000/artidea/proj/git  --&gt;  основные git-репозитории для проектов
+/home/000/artidea/proj/OUT  --&gt;  директория для финальных файлов</pre></div>
+<p>Мой проект будет размещаться в директории <strong>0001</strong>, поэтому нужно
+создть структуру директорий для этого проекта:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mkdir -p /home/000/artidea/proj/{git,OUT}/0001</pre></div>
+<h3 id="основной-git-репозиторий">Основной git-репозиторий</h3>
+
+<p>Теперь нужно инициализировать основной пустой git-репозиторий для
+проекта <strong>0001</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd /home/000/artidea/proj/git/0001
+git init --bare</pre></div>
+<p><code>Jeinkins</code> будет запускаться в Docker-контейнере и подключать в свою
+внутреннюю директорию <strong>/cicd</strong> директории наших проектов:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">        Фактически                Jenkins
+--------------------------       ---------
+/home/000/artidea/proj/git  --&gt;  /cicd/git
+/home/000/artidea/proj/OUT  --&gt;  /cicd/OUT</pre></div>
+<p>Для того чтобы заставлять <code>Jenkins</code> запускать конвейер (pipeline)
+после каждого git push в основной git-репозиторий, я буду использовать
+git-хук скрипт. Для моего проект <strong>0001</strong> необходимо создать хук-скрипт
+в директории <strong>/home/000/artidea/proj/git/0001/hooks/</strong>,
+файл с именем <strong>post-receive</strong> содержащий следующее:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span><span style="color:#75715e"># Notify Jenkins about a push</span>
+curl http://artidea.home:8080/git/notifyCommit?url<span style="color:#f92672">=</span>file:///cicd/git/0001</pre></div>
+<p>Обратите внимание, что именем моего хоста на котором будет доступен
+<code>Jenkins</code> является <em>artidea.home</em>. Вам вероятно нужно изменить
+это имя в хук-скрипте в соответствии с вашим окружением.
+И не забудьте сделать этот скрипт исполнимым выполнив команду:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">chmod +x /home/000/artidea/proj/git/0001/hooks/post-receive</pre></div>
+<h3 id="jenkins">Jenkins</h3>
+
+<p>Теперь пришло время запустить <code>Jenkins</code> в первый раз.
+Я буду использовать <code>Jenkins</code> из
+<a href="https://hub.docker.com/r/jenkinsci/blueocean" target="_blank">jenkinsci/blueocean</a>
+Docker-образа.
+При первом запуске я рекомендую запускать контейнер <code>Jenkins</code> без
+отсоединения его от терминала, для того чтобы видеть его лог.
+Это потому, что во время своего первого запуска, <code>Jenkins</code> напечатает
+в своём логе первоначальный пароль администратора, который требуется для
+осуществления дальнейшей настройки посредством веб-интерфейса.</p>
+
+<p>Итак, давайте-ка запустим <code>Jenkins</code> с помощью следующей команды:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">docker run -ti --rm \
+     -u root \
+     -p 8080:8080 \
+     -v jenkins-data:/var/jenkins_home \
+     -v /var/run/docker.sock:/var/run/docker.sock \
+     -v /home/000/artidea/proj/git/:/cicd/git \
+     -v /home/000/artidea/proj/OUT/:/cicd/OUT \
+     --name my-jenkins \
+     jenkinsci/blueocean</pre></div>
+<p>Для последующих запусков <code>Jenkins</code> можно создать скрипт. Конечно, в реальных
+условиях необходимо создать скрипт для запуска <code>Jeinkins</code> во время загрузки
+системы. Но для этого примера я не будут этого делать, лишь ограничусь
+созданием простого скрипта и положу его где-нибудь в $PATH. Скрипт в сущности
+тот же самый как и команда выше, с той лишь разницей, что опции <code>-ti</code>
+заменены опцией <code>-d</code> для запуска Docker-контейнера в отсоединённом от терминала
+режиме.</p>
+
+<p><strong>my-jenkins.sh</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+docker run -d --rm <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -u root <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -p <span style="color:#ae81ff">8080</span>:8080 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -v jenkins-data:/var/jenkins_home <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -v /var/run/docker.sock:/var/run/docker.sock <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -v /home/000/artidea/proj/git/:/cicd/git <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -v /home/000/artidea/proj/OUT/:/cicd/OUT <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     --name my-jenkins <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     jenkinsci/blueocean</pre></div>
+<p>Когда <code>Jenkins</code> запускается впервые, нам необходимо его настроить.
+Запустим web-браузер и перейдем по адресу <code>Jenkins</code>,
+<strong><a href="http://artidea.home:8080">http://artidea.home:8080</a></strong> в моём случае, ваш вероятно другой.
+Возьмём начальный пароль администратора <code>Jenkins</code> из его лога и вставим
+его в соответствующее поле в веб-интерфейсе.</p>
+
+<p><a href="/img/post/2019060101/jenkins-initial-setup-01.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-01.png#center" alt="Веб-интерфейс Jenkins, настройка, ввод пароля" />
+</a></p>
+
+<p>Продолжим настройку посредством веб-интерфейса. В моём случае я установил
+все предложенные плагины.</p>
+
+<p><a href="/img/post/2019060101/jenkins-initial-setup-02.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-02.png#center" alt="Веб-интерфейс Jenkins, настройка, выбор плагинов" />
+</a>
+<a href="/img/post/2019060101/jenkins-initial-setup-03.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-03.png#center" alt="Веб-интерфейс Jenkins, настройка, установка плагинов" />
+</a></p>
+
+<p>Создадим пользователя Admin.</p>
+
+<p><a href="/img/post/2019060101/jenkins-initial-setup-04.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-04.png#center" alt="Веб-интерфейс Jenkins, настройка, создание пользователя admin" />
+</a></p>
+
+<p>Зададим URL <code>Jenkins</code>.</p>
+
+<p><a href="/img/post/2019060101/jenkins-initial-setup-05.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-05.png#center" alt="Веб-интерфейс Jenkins, настройка, ввод URL" />
+</a></p>
+
+<p>И наконец, <code>Jenkins</code> готов к работе.</p>
+
+<p><a href="/img/post/2019060101/jenkins-initial-setup-06.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-06.png#center" alt="Веб-интерфейс Jenkins, настройка, завершение" />
+</a></p>
+
+<p>Продолжим настройкой нового конвейера для проекта <strong>0001</strong>.</p>
+
+<p><a href="/img/post/2019060101/jenkins-dashboard-01.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-dashboard-01.png#center" alt="Веб-интерфейс Jenkins" />
+</a></p>
+
+<p>Введём название проекта (<strong>proj0001</strong>), выберем &ldquo;<strong>Pipeline</strong>&rdquo;,
+далее нажмём кнопку &ldquo;<strong>OK</strong>&rdquo;.</p>
+
+<p><a href="/img/post/2019060101/jenkins-new-pipeline-01.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-new-pipeline-01.png#center" alt="Веб-интерфейс Jenkins, новый конвейер" />
+</a></p>
+
+<p>Для информативности, введём описание проекта.</p>
+
+<p><a href="/img/post/2019060101/jenkins-new-pipeline-02.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-new-pipeline-02.png#center" alt="Веб-интерфейс Jenkins, новый конвейер" />
+</a></p>
+
+<p>Пометим &ldquo;<strong>Do not allow concurrent builds</strong>&rdquo; и &ldquo;<strong>Poll SCM</strong>&rdquo; чек-боксы.
+Не нужно ничего вводить в поле &ldquo;<strong>Schedule</strong>&rdquo;, потому что будем использовать
+git-хук для нотификации <code>Jenkins</code> о новых изменениях в git-репозитории.
+&ldquo;<strong>Poll SCM</strong>&rdquo; чек-бокс однако должен быть помечен.</p>
+
+<p><a href="/img/post/2019060101/jenkins-new-pipeline-03.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-new-pipeline-03.png#center" alt="Веб-интерфейс Jenkins, новый конвейер" />
+</a></p>
+
+<p>В секции <strong>Pipeline</strong> установим значение поля &ldquo;<strong>Defenition</strong>&rdquo; в
+&ldquo;<strong>Pipeline script from SCM</strong>&rdquo;, значение поля &ldquo;<strong>SCM</strong>&rdquo; в
+&ldquo;<strong>Git</strong>&rdquo;, в поле &ldquo;<strong>Repository URL</strong>&rdquo; введём &ldquo;<strong>file:///cicd/git/0001</strong>&rdquo;.</p>
+
+<p><a href="/img/post/2019060101/jenkins-new-pipeline-04.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-new-pipeline-04.png#center" alt="Веб-интерфейс Jenkins, новый конвейер" />
+</a></p>
+
+<p>Нажмём кнопку &ldquo;<strong>Save</strong>&rdquo; и получим готовый к работе конвейер.</p>
+
+<p><a href="/img/post/2019060101/jenkins-proj-01.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-proj-01.png#center" alt="Веб-интерфейс Jenkins, созданный конвейер" />
+</a></p>
+
+<h3 id="структура-файлов-и-директорий-поекта-0001">Структура файлов и директорий поекта 0001</h3>
+
+<p>Теперь давайте создадим структуру директории проекта <strong>0001</strong>.
+Нам понадобится какая-нибудь директория, где мы будем работать
+над нашим проектом. Можно создать ту директорию где-нибудь
+в своём $HOME. После этого надо клонировать основной git-репозиторий в ту
+директорию, перейти в клонированный репозиторий и выполнить первоначальную
+подготовку:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">git clone /home/000/artidea/proj/git/0001
+cd 0001</pre></div>
+<p>Нужно создать директории для конфигурации и листов:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mkdir config sheets</pre></div>
+<p>Нужно скопировать конфигурационный файл <strong>config.ini</strong> утилиты <code>enumsheets</code>
+из её
+<a href="https://github.com/xanderdin/enumsheets" target="_blank">GitHub репозитория</a>,
+в директорию <strong>config</strong> нашего проекта и именовать его <strong>enumsheets.ini</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">URL=&#34;https://raw.githubusercontent.com/xanderdin/enumsheets/37789348564ae881acd54c8e3bc70cea5f8ebc65/config.ini&#34;
+wget &#34;$URL&#34; -O config/enumsheets.ini</pre></div>
+<p>Также нужно отредактировать этот конфигурационный файл в соответствии с потребностями
+проекта.</p>
+
+<p>Затем нужно создать <strong>Jenkinsfile</strong> в корне клонированной директории
+проекта <strong>0001</strong> со следующим содержимым:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Groovy" data-lang="Groovy"><span style="color:#75715e">#!/usr/bin/env groovy</span>
+
+pipeline <span style="color:#f92672">{</span>
+    agent none
+    stages <span style="color:#f92672">{</span>
+        stage<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Clean&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            agent any
+            steps <span style="color:#f92672">{</span>
+                echo <span style="color:#e6db74">&#39;Removing old data...&#39;</span>
+                sh <span style="color:#e6db74">&#39;rm -rf ${WORKSPACE}/enumerated_sheets*&#39;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        stage<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Enum&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            agent <span style="color:#f92672">{</span>
+                docker <span style="color:#f92672">{</span>
+                    image <span style="color:#e6db74">&#39;enumsheets&#39;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+            steps <span style="color:#f92672">{</span>
+                echo <span style="color:#e6db74">&#39;Enumerating sheets...&#39;</span>
+                sh <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">                /app/enumsheets.py -c ${WORKSPACE}/config/enumsheets.ini ${WORKSPACE}/sheets/*.dxf
+</span><span style="color:#e6db74">                &#39;&#39;&#39;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        stage<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Print&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            agent <span style="color:#f92672">{</span>
+                docker <span style="color:#f92672">{</span>
+                    image <span style="color:#e6db74">&#39;dxf2pdf&#39;</span>
+                    args <span style="color:#e6db74">&#34;--entrypoint=&#39;&#39;&#34;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+            steps <span style="color:#f92672">{</span>
+                echo <span style="color:#e6db74">&#39;Printing to PDF...&#39;</span>
+                sh <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">                /app/dxf2pdf -o ${WORKSPACE}/All.pdf ${WORKSPACE}/enumerated_sheets/*.dxf
+</span><span style="color:#e6db74">                &#39;&#39;&#39;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        stage<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Save&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            agent any
+            steps <span style="color:#f92672">{</span>
+                echo <span style="color:#e6db74">&#39;Saving output file...&#39;</span>
+                sh <span style="color:#e6db74">&#39;cp ${WORKSPACE}/All.pdf /cicd/OUT/0001/&#39;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p><em>Обратите внимание, что первая строка (shebang) в этом <strong>Jenkinsfile</strong> не
+требуется для <code>Jenkins</code>, но полезна для текстовых редакторов, чтобы помочь
+им применить правильную подсветку синтаксиса во время его редактирования.</em></p>
+
+<p>Вот так выглядит конечная структура файлов и директорий:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">0001
+    ├── config
+    │   └── enumsheets.ini
+    ├── Jenkinsfile
+    └── sheets</pre></div>
+<p>Теперь нужно добавить все изменения в git и выполнить git push для сохранения
+наших изменений в основном git-репозитории, путем выполнения следующего
+набора команд в клонированной директории проекта <strong>0001</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">git add .
+git commit -m &#39;Initial commit&#39;
+git push</pre></div>
+<p>С этого момента все дизайнеры в команде могут клонировать себе основной
+git-репозиторий, начать создавать новые листы чертежей, сохраняя их в
+директории <strong>sheets</strong>, отправляя свою работу в основной git-репозиторий
+и постоянно получая результат совместной работы в виде единого PDF файла
+(<strong>All.pdf</strong>) внутри общедоступной директории
+<strong>/home/000/artidea/proj/OUT/0001/</strong>,
+готового для обзора и ранних исправлений в любое время в течении целого
+этапа производства технической документации.</p>
+
+<p><a href="/img/post/2019060101/jenkins-pipeline-results.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-pipeline-results.png#center" alt="Веб-интерфейс Jenkins, результат выполнения конвейера" />
+</a></p>
+
+<p>Обратите внимание, что если вдруг после добавления первых чертежей и передачи
+их в основной git-репозиторий <code>Jenkins</code> не запустит конвейер, тогда вероятно
+потребуется запустить тот конвейер в этот раз вручную из веб-интерфейса.
+После этого каждая новая отправка изменений в основной git-репозиторий
+должна срабатывать как ожидается, если всё настроено правильно.</p>
+
+<p>Вы можете поэкспериментировать с выше описанным окружением используя
+DXF файлы примеров из GitHub репозитория проекта <code>enumsheets</code>, которые
+располагаются в директории
+<a href="https://github.com/xanderdin/enumsheets/tree/37789348564ae881acd54c8e3bc70cea5f8ebc65/examples/orig" target="_blank">example/orig</a>.
+Можно загрузить их и один за другим класть в директорию <strong>sheets</strong>
+проекта <strong>0001</strong>, отправляя изменения в основной git-репозиторий и наблюдая
+как изменяется файл <strong>/home/000/artidea/proj/OUT/0001/All.pdf</strong> после каждого
+git push и прохода конвейера.</p>
+
+<h2 id="заключение">Заключение</h2>
+
+<p>После организации окружения по описанной конфигурации поставленные цели были
+достигнуты. Теперь каждый член команды может в любой момент наблюдать
+результаты совместной работы, вносить требуемые исправления на раннем этапе
+и работать параллельно с другими участниками команды над одним и тем же
+проектом. Автоматизация устранила процесс ручной сборки и многократно уменьшила
+время от начала работы над проектной документацией до получения результата
+(от часов ручной работы до нескольких секунд автоматической сборки).
+И этот пример показывает, что не только команды занятые производством
+программных продуктов могут получать выгоду от использования CI/CD
+практик, но и другие команды, которые заняты в других производственных
+областях также. Очевидно, что существует множество таких же команд,
+нуждающихся в подобных улучшениях. Почему бы не найти и не помочь им?</p>
+
+<p><img src="/img/post/2019060101/31576.jpg#center" alt="Сотрудничество" />
+<center>
+<small><a href="https://www.freepik.com/free-photos-vectors/business" target="_blank">Business photo created by rawpixel.com - www.freepik.com</a></small>
+</center></p>
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/ru/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/" rel="tag">автоматизация</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/ru/tags/jenkins/" rel="tag">jenkins</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/ru/tags/docker/" rel="tag">docker</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/ru/tags/cicd/" rel="tag">cicd</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/ru/tags/enumsheets/" rel="tag">enumsheets</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/ru/tags/dxf2pdf/" rel="tag">dxf2pdf</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/ru/post/my-pocket-tomtit/" rel="prev"><span class="post-nav__caption">«&thinsp;Назад</span><p class="post-nav__post-title">Моя Карманная Синица</p></a>
+	</div>
+</nav>
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    this.page.identifier = '2019060101-cicd-for-artidea.ru';
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "xanderdin" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="ПОИСК..." value="" name="q" aria-label="ПОИСК...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://xanderdin.github.io/" />
+	</form>
+</div>
+<div class="widget-languages widget">
+	<h4 class="widget__title">Языки</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget-languages__link widget__link" href="/en/">
+					<span class="widget-languages__link-btn widget__link-btn btn">EN</span>
+					<span class="widget-languages__link-text widget__link-text">English</span>
+				</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget-languages__link widget__link" href="/ru/">
+					<span class="widget-languages__link-btn widget__link-btn btn">RU</span>
+					<span class="widget-languages__link-text widget__link-text">Русский</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Недавние публикации</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/ru/post/cicd-for-artidea/">И кто сказал, что CI/CD только для софта?</a></li>
+			<li class="widget__item"><a class="widget__link" href="/ru/post/my-pocket-tomtit/">Моя Карманная Синица</a></li>
+			<li class="widget__item"><a class="widget__link" href="/ru/post/my-librecad-enhancements-20190325/">Мои доработки LibreCAD (Октябрь 2018 -- Март 2019)</a></li>
+			<li class="widget__item"><a class="widget__link" href="/ru/post/gitlab-through-tor/">GitLab через Tor</a></li>
+			<li class="widget__item"><a class="widget__link" href="/ru/post/lets-lubricate-the-wheel/">А не смазать ли мне мои &#34;колёса&#34;?</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Ярлыки</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/android" title="Android">Android</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/jiayu-g2f" title="Jiayu g2 f">Jiayu g2 f</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/librecad" title="Libre c a d">Libre c a d</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/cicd" title="Cicd">Cicd</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/docker" title="Docker">Docker</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/dxf2pdf" title="Dxf2pdf">Dxf2pdf</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/enumsheets" title="Enumsheets">Enumsheets</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/git" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/gitlab" title="Gitlab">Gitlab</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/jenkins" title="Jenkins">Jenkins</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/open-source" title="Open source">Open source</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/tor" title="Tor">Tor</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/%d0%b0%d0%b2%d1%82%d0%be%d0%bc%d0%b0%d1%82%d0%b8%d0%b7%d0%b0%d1%86%d0%b8%d1%8f" title="Автоматизация">Автоматизация</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/%d0%b2%d0%be%d1%81%d0%bf%d0%be%d0%bc%d0%b8%d0%bd%d0%b0%d0%bd%d0%b8%d1%8f" title="Воспоминания">Воспоминания</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/%d0%bf%d1%80%d0%be%d1%88%d0%b8%d0%b2%d0%ba%d0%b0" title="Прошивка">Прошивка</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0" title="Работа">Работа</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/%d1%80%d0%b0%d0%b7%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%ba%d0%b0-%d0%bf%d0%be" title="Разработка п о">Разработка п о</a>
+		<a class="widget-taglist__link widget__link btn" href="/ru/tags/%d1%81%d0%ba%d1%80%d0%b8%d0%bf%d1%82%d1%8b" title="Скрипты">Скрипты</a>
+	</div>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Социальные сети</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="LinkedIn" rel="noopener noreferrer" href="https://linkedin.com/in/xanderdin" target="_blank">
+				<svg class="widget-social__link-icon icon-linkedin" viewBox="0 0 352 352" width="24" height="24" fill="#fff"><path d="M0,40v272c0,21.9,18.1,40,40,40h272c21.9,0,40-18.1,40-40V40c0-21.9-18.1-40-40-40H40C18.1,0,0,18.1,0,40z M312,32 c4.6,0,8,3.4,8,8v272c0,4.6-3.4,8-8,8H40c-4.6,0-8-3.4-8-8V40c0-4.6,3.4-8,8-8H312z M59.5,87c0,15.2,12.3,27.5,27.5,27.5 c15.2,0,27.5-12.3,27.5-27.5c0-15.2-12.3-27.5-27.5-27.5C71.8,59.5,59.5,71.8,59.5,87z M187,157h-1v-21h-45v152h47v-75 c0-19.8,3.9-39,28.5-39c24.2,0,24.5,22.4,24.5,40v74h47v-83.5c0-40.9-8.7-72-56.5-72C208.5,132.5,193.3,145.1,187,157z M64,288h47.5 V136H64V288z"/></svg>
+				<span>LinkedIn</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/xanderdin" target="_blank">
+				<svg class="widget-social__link-icon icon-github" viewBox="0 0 384 374" width="24" height="24" fill="#fff"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2019 Александр Правдин.
+			<span class="footer__copyright-credits">Сгенерировано с использованием <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> и темы <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script></body>
+</html>

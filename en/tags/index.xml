@@ -41,9 +41,45 @@
     <item>
       <title>automation</title>
       <link>https://xanderdin.github.io/en/tags/automation/</link>
-      <pubDate>Tue, 20 Nov 2018 20:00:00 +0300</pubDate>
+      <pubDate>Sat, 01 Jun 2019 10:00:00 +0300</pubDate>
       
       <guid>https://xanderdin.github.io/en/tags/automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cicd</title>
+      <link>https://xanderdin.github.io/en/tags/cicd/</link>
+      <pubDate>Sat, 01 Jun 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/cicd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://xanderdin.github.io/en/tags/docker/</link>
+      <pubDate>Sat, 01 Jun 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dxf2pdf</title>
+      <link>https://xanderdin.github.io/en/tags/dxf2pdf/</link>
+      <pubDate>Sat, 01 Jun 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/dxf2pdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>enumsheets</title>
+      <link>https://xanderdin.github.io/en/tags/enumsheets/</link>
+      <pubDate>Sat, 01 Jun 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/enumsheets/</guid>
       <description></description>
     </item>
     
@@ -71,6 +107,15 @@
       <pubDate>Thu, 03 Jan 2019 10:00:00 +0300</pubDate>
       
       <guid>https://xanderdin.github.io/en/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jenkins</title>
+      <link>https://xanderdin.github.io/en/tags/jenkins/</link>
+      <pubDate>Sat, 01 Jun 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/tags/jenkins/</guid>
       <description></description>
     </item>
     

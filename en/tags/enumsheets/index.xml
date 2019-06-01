@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>enumsheets on @xanderdin</title>
+    <link>https://xanderdin.github.io/en/tags/enumsheets/</link>
+    <description>Recent content in enumsheets on @xanderdin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Jun 2019 10:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="https://xanderdin.github.io/en/tags/enumsheets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Who said CI/CD is only for software?</title>
+      <link>https://xanderdin.github.io/en/post/cicd-for-artidea/</link>
+      <pubDate>Sat, 01 Jun 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/en/post/cicd-for-artidea/</guid>
+      <description>&lt;p&gt;Recently I googled for CI/CD use cases. There is a huge amount
+of articles on the subject but all of them are mostly about
+how to apply those practices in a software development
+environment. Is this the only way of how those practices and
+techniques can be used? Certainly not. And here&amp;rsquo;s my example
+of applying them in a non-software production.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

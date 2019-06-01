@@ -6,10 +6,24 @@
     <description>Recent content in автоматизация on @xanderdin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
-    <lastBuildDate>Tue, 20 Nov 2018 20:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2019 10:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://xanderdin.github.io/ru/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>И кто сказал, что CI/CD только для софта?</title>
+      <link>https://xanderdin.github.io/ru/post/cicd-for-artidea/</link>
+      <pubDate>Sat, 01 Jun 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/post/cicd-for-artidea/</guid>
+      <description>&lt;p&gt;Недавно я гуглил на предмет использования CI/CD. Существует огромное
+количество статей на эту тему, но все они в основном о том, как
+применять эти практики в сфере разработки программного обеспечения.
+Неужели это единственная область, где эти подходы применимы? Конечно нет.
+Вот мой пример использования их в области, которая не относится к разработке
+программного обеспечения.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>А не смазать ли мне мои &#34;колёса&#34;?</title>

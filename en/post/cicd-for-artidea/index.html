@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Who said CI/CD is only for software? - @xanderdin</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.54.0" />
+	<meta property="og:title" content="Who said CI/CD is only for software?" />
+<meta property="og:description" content="Recently I googled for CI/CD use cases. There is a huge amount
+of articles on the subject but all of them are mostly about
+how to apply those practices in a software development
+environment. Is this the only way of how those practices and
+techniques can be used? Certainly not. And here&rsquo;s my example
+of applying them in a non-software production." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xanderdin.github.io/en/post/cicd-for-artidea/" />
+<meta property="article:published_time" content="2019-06-01T10:00:00&#43;03:00"/>
+<meta property="article:modified_time" content="2019-06-01T10:00:00&#43;03:00"/>
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Who said CI/CD is only for software?"/>
+<meta name="twitter:description" content="Recently I googled for CI/CD use cases. There is a huge amount
+of articles on the subject but all of them are mostly about
+how to apply those practices in a software development
+environment. Is this the only way of how those practices and
+techniques can be used? Certainly not. And here&rsquo;s my example
+of applying them in a non-software production."/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-129409239-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/en/" title="@xanderdin" rel="home">
+				<div class="logo__title">@xanderdin</div>
+				<div class="logo__tagline">Just yet another blog about all that</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Who said CI/CD is only for software?</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2019-06-01T10:00:00">2019-06-01</time>
+</div>
+
+<div class="meta__item-translations meta__item">
+	<span class="meta__text">Translations: <a class="meta__link" href="/ru/post/cicd-for-artidea/">RU</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			<p>Recently I googled for CI/CD use cases. There is a huge amount
+of articles on the subject but all of them are mostly about
+how to apply those practices in a software development
+environment. Is this the only way of how those practices and
+techniques can be used? Certainly not. And here&rsquo;s my example
+of applying them in a non-software production.</p>
+
+<h2 id="plot">Plot</h2>
+
+<p>Imagine a small interior design studio with a small team of
+designers. Their work is to provide clients with ideas,
+visuals and technical drawings suitable for construction
+work when implementing those ideas in reality. Creating
+technical drawings is usually the final stage of any design
+project when abstract ideas transform into actual dimensions
+and specifications.</p>
+
+<p><img src="/img/post/2019060101/engineering-pictures-12.jpg#center" alt="Technical drawings" /></p>
+
+<p>The team uses free open source tools for their production
+work. Of course, they face some difficulties
+when it comes to collaboration on the same project.
+As a result of those difficulties usually only one designer
+works on the final stage of the project while others are
+not participating in that stage. Certainly, it is
+counterproductive and increases overall time of the
+process, making clients and team members unhappy.</p>
+
+<p>The difficulties come from the way of how the software they
+are using works with drawings. Every drawing is a single
+file. A project usually consists of 50 or more drawings.
+And assembling all those drawings, first assigning all sheets numbers,
+then converting them to multiple PDF files, and finally to a single
+PDF file, all this doing manually is a very time consuming and error-prone
+procedure (hours of monotonuas manual work). And
+before all files are ready and assembled the final
+result cannot be easily seen, checked and corrected.</p>
+
+<p>But thanks to the open source nature, those tools can be
+<a href='https://xanderdin.github.io/en/post/my-librecad-enhancements-20190325/' target="_blank">improved and extended</a>.
+And even other open source
+tools can be used to help eliminate those difficulties
+making the procedure more straightforward and convenient.</p>
+
+<h2 id="idea">Idea</h2>
+
+<p>Nowadays we hear from every corner about DevOps practices,
+CI/CD streamlines, agile methodologies in software production.
+Why not try and apply those in a non-software
+production environment? Let&rsquo;s try and see what can be done for
+the described team of designers.</p>
+
+<p><strong>Goals:</strong></p>
+
+<ul>
+<li>Automate technical drawings production stage.</li>
+<li>Make result visible at any time of the production stage.</li>
+<li>Provide collaborative environment allowing work in parallel.</li>
+</ul>
+
+<p><strong>Tools:</strong></p>
+
+<ul>
+<li><a href="https://git-scm.com/" target="_blank">Git</a></li>
+<li><a href="https://www.docker.com/" target="_blank">Docker</a></li>
+<li><a href="https://jenkins.io/" target="_blank">Jenkins</a></li>
+<li><a href="https://github.com/xanderdin/enumsheets" target="_blank">enumsheets</a></li>
+<li><a href="https://github.com/xanderdin/LibreCAD_dxf2pdf_standalone" target="_blank">dxf2pdf</a></li>
+</ul>
+
+<p>All tools will be running on <code>Debian GNU/Linux (Stretch)</code>.
+I&rsquo;m assuming a suitable computer is already provisioned,
+<code>Docker</code> is installed and running.</p>
+
+<p><em>Note: this is just a simplified example of what can be done in reality.</em></p>
+
+<h2 id="example-production-workflow">Example production workflow</h2>
+
+<p>Designers draw technical drawings and commit them to their
+local git repositories. After every newly drawn sheet they push
+their work to main git repository. A pipeline in <code>Jenkins</code> fetches
+drawings from main git repository, processes them with <code>enumsheets</code>
+script inserting sheet numbers and other data to their title
+blocks, then processes enumerated sheets with <code>dxf2pdf</code>
+tool getting a single PDF file as output. The output PDF file is
+then copied to a shared directory available to all team members.</p>
+
+<p>Designers use <a href="https://librecad.org" target="_blank">LibreCAD</a>
+for making drawings and follow <code>enumsheets</code> requirements for drawings&rsquo;
+title blocks.</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>First, let&rsquo;s create Docker images for <code>enumsheets</code> and
+<code>dxf2pdf</code> tools. Create two directories somewhere in your $HOME,
+one for <code>enumsheets</code> and other for <code>dxf2pdf</code>. Create two files in each
+of those directories, <strong>Dockerfile</strong> and <strong>build.sh</strong>:</p>
+
+<p><strong>Dockerfile</strong> for <code>enumsheets</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">FROM python:3-alpine
+WORKDIR /app
+COPY enumsheets/enumsheets.py ./
+COPY enumsheets/config.ini ./
+COPY enumsheets/requirements.txt ./
+RUN pip install --no-cache-dir --trusted-host pypi.python.org -r ./requirements.txt
+ENV PATH=$PATH:/app
+CMD [&#34;sh&#34;]</pre></div>
+<p><strong>build.sh</strong> script for <code>enumsheets</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+CWD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>
+
+<span style="color:#75715e"># enumsheets v1.0.1 commit:</span>
+COMMIT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;37789348564ae881acd54c8e3bc70cea5f8ebc65&#34;</span>
+
+<span style="color:#75715e"># clean</span>
+<span style="color:#f92672">[</span> -d enumsheets <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> rm -rf enumsheets
+
+<span style="color:#75715e"># clone</span>
+git clone https://github.com/xanderdin/enumsheets.git
+
+<span style="color:#75715e"># use particular commit</span>
+cd enumsheets
+git checkout -b <span style="color:#e6db74">&#34;commit_</span><span style="color:#e6db74">${</span>COMMIT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>COMMIT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>CWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># build</span>
+docker build ./ --tag<span style="color:#f92672">=</span>enumsheets</pre></div>
+<p>Make <strong>build.sh</strong> executable and run it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">chmod +x build.sh
+./build.sh</pre></div>
+<p>After successful build we&rsquo;ll get a Docker image for <code>enumsheets</code>.
+To see if it exists, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">docker image ls enumsheets</pre></div>
+<p>Next, go to <code>dxf2pdf</code> directory, create <strong>Dockerfile</strong> and
+<strong>build.sh</strong> with the following contents.</p>
+
+<p><strong>Dockerfile</strong> for <code>dxf2pdf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">FROM debian:stretch-slim
+
+COPY ./app /app
+
+RUN set -ex; \
+    apt-get update &amp;&amp; apt-get install -y --no-install-recommends \
+        libbsd0 \
+        libdouble-conversion1 \
+        libdrm2 \
+        libexpat1 \
+        libfreetype6 \
+        libgcc1 \
+        libglapi-mesa \
+        libglib2.0-0 \
+        libgl1-mesa-glx \
+        libgraphite2-3 \
+        libharfbuzz0b \
+        libicu57 \
+        libmuparser2v5 \
+        libpcre16-3 \
+        libpcre3 \
+        libpng16-16 \
+        libqt5core5a \
+        libqt5gui5 \
+        libqt5printsupport5 \
+        libqt5widgets5 \
+        libstdc++6 \
+        libx11-6 \
+        libx11-xcb1 \
+        libxau6 \
+        libxcb-dri2-0 \
+        libxcb-dri3-0 \
+        libxcb-glx0 \
+        libxcb-present0 \
+        libxcb1 \
+        libxcb-sync1 \
+        libxdamage1 \
+        libxdmcp6 \
+        libxext6 \
+        libxfixes3 \
+        libxshmfence1 \
+        libxxf86vm1 \
+        zlib1g \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+# Note: dxf2pdf must be called with full path specified (/app/dxf2pdf)
+# or it won&#39;t be able to find its resources. So, adding it to PATH does
+# not make sense.
+#ENV PATH $PATH:/app
+
+ENTRYPOINT [&#34;/app/dxf2pdf&#34;]</pre></div>
+<p><strong>build.sh</strong> script for <code>dxf2pdf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+CWD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>
+
+<span style="color:#75715e"># dxf2pdf commit</span>
+COMMIT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;d01efb3f33d4cc257fa0bb6d68098193cc03fa19&#34;</span>
+
+<span style="color:#75715e"># clean</span>
+<span style="color:#f92672">[</span> -d ./app <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> rm -rf ./app
+<span style="color:#f92672">[</span> -d ./LibreCAD_dxf2pdf_standalone <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> rm -rf ./LibreCAD_dxf2pdf_standalone
+
+<span style="color:#75715e"># clone</span>
+git clone https://github.com/xanderdin/LibreCAD_dxf2pdf_standalone.git
+
+<span style="color:#75715e"># build dxf2pdf</span>
+cd ./LibreCAD_dxf2pdf_standalone
+git checkout -b <span style="color:#e6db74">&#34;commit_</span><span style="color:#e6db74">${</span>COMMIT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>COMMIT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+./prepare.sh
+mkdir build
+cd build
+cmake ../LibreCAD
+make -j <span style="color:#ae81ff">4</span>
+mv OUT <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>CWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/app&#34;</span>
+cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>CWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># build docker image</span>
+docker build ./ --tag<span style="color:#f92672">=</span>dxf2pdf</pre></div>
+<p>Make <strong>build.sh</strong> executable and run it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">chmod +x build.sh
+./build.sh</pre></div>
+<p>After successful build we&rsquo;ll get a Docker image for <code>dxf2pdf</code>.
+To see if it exists, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">docker image ls dxf2pdf</pre></div>
+<h3 id="directories-for-shared-storage">Directories for shared storage</h3>
+
+<p>For the simplicity of this example setup I&rsquo;m going to create
+main git repository on the same computer where all other stuff
+runs. My directory structure for shared access will be as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">/home/000/artidea/proj      --&gt;  base directory
+/home/000/artidea/proj/git  --&gt;  git main repositories for projects
+/home/000/artidea/proj/OUT  --&gt;  output files storage</pre></div>
+<p>My example project will be located in <strong>0001</strong> directory, so let&rsquo;s create
+directory structure for this project:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mkdir -p /home/000/artidea/proj/{git,OUT}/0001</pre></div>
+<h3 id="main-git-repository">Main git repository</h3>
+
+<p>Now let&rsquo;s initialize main bare git repository for <strong>0001</strong> project:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd /home/000/artidea/proj/git/0001
+git init --bare</pre></div>
+<p><code>Jeinkins</code> will be run in a Docker container and its directory
+mappings will map our projects directories to its inner <strong>/cicd</strong>
+directory as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">          Actual                  Jenkins
+--------------------------       ---------
+/home/000/artidea/proj/git  --&gt;  /cicd/git
+/home/000/artidea/proj/OUT  --&gt;  /cicd/OUT</pre></div>
+<p>I&rsquo;m going to use git hook script in order to trigger
+<code>Jenkins</code> pipeline run after each push to main git repository.
+For my <strong>0001</strong> project I need to create a hook script
+in <strong>/home/000/artidea/proj/git/0001/hooks/</strong> directory,
+a file named <strong>post-receive</strong> with the following contents:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span><span style="color:#75715e"># Notify Jenkins about a push</span>
+curl http://artidea.home:8080/git/notifyCommit?url<span style="color:#f92672">=</span>file:///cicd/git/0001</pre></div>
+<p>Note, my hostname at which <code>Jenkins</code> will be available is <em>artidea.home</em>.
+Change this name in the hook script according to your environment.
+Don&rsquo;t forget to make that script executable by running:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">chmod +x /home/000/artidea/proj/git/0001/hooks/post-receive</pre></div>
+<h3 id="jenkins">Jenkins</h3>
+
+<p>Now it&rsquo;s time to run <code>Jenkins</code> for the first time.
+I&rsquo;m going to use <code>Jenkins</code> from
+<a href="https://hub.docker.com/r/jenkinsci/blueocean" target="_blank">jenkinsci/blueocean</a>
+Docker image.
+For the first time I recommend running <code>Jenkins</code> container
+without detaching it from terminal in other to see its log.
+That&rsquo;s because during its first run <code>Jenkins</code> will print to its log
+the initial admin password required to proceed with setup by using web-UI.</p>
+
+<p>So let&rsquo;s run <code>Jenkins</code> with the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">docker run -ti --rm \
+     -u root \
+     -p 8080:8080 \
+     -v jenkins-data:/var/jenkins_home \
+     -v /var/run/docker.sock:/var/run/docker.sock \
+     -v /home/000/artidea/proj/git/:/cicd/git \
+     -v /home/000/artidea/proj/OUT/:/cicd/OUT \
+     --name my-jenkins \
+     jenkinsci/blueocean</pre></div>
+<p>For next <code>Jenkins</code> runs we can create a script. Of course, in
+production environment one should create a script for
+starting <code>Jeinkins</code> during system boot. But for this example
+I&rsquo;m not going to do that, just create a simple script and
+put it somewhere on the $PATH. The script is almost the
+same as the run command above except the <code>-ti</code> options are replaced
+by <code>-d</code> option in order to run Docker container in a detached
+mode.</p>
+
+<p><strong>my-jenkins.sh</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+docker run -d --rm <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -u root <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -p <span style="color:#ae81ff">8080</span>:8080 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -v jenkins-data:/var/jenkins_home <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -v /var/run/docker.sock:/var/run/docker.sock <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -v /home/000/artidea/proj/git/:/cicd/git <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     -v /home/000/artidea/proj/OUT/:/cicd/OUT <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     --name my-jenkins <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     jenkinsci/blueocean</pre></div>
+<p>When <code>Jenkins</code> is running for the first time we need configure it.
+Let&rsquo;s run web-browser and go to <code>Jenkins</code> address,
+<strong><a href="http://artidea.home:8080">http://artidea.home:8080</a></strong> in my case, yours may differ. Find <code>Jenkins</code>
+initial admin password in its log and insert it into web-UI field.</p>
+
+<p><a href="/img/post/2019060101/jenkins-initial-setup-01.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-01.png#center" alt="Jenkins web-UI setup, enter password" />
+</a></p>
+
+<p>Proceed configuration through web-UI. For my setup I installed all suggested plugins.</p>
+
+<p><a href="/img/post/2019060101/jenkins-initial-setup-02.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-02.png#center" alt="Jenkins web-UI setup, choice of plugins" />
+</a>
+<a href="/img/post/2019060101/jenkins-initial-setup-03.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-03.png#center" alt="Jenkins web-UI setup, plugins installation" />
+</a></p>
+
+<p>Create Admin user.</p>
+
+<p><a href="/img/post/2019060101/jenkins-initial-setup-04.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-04.png#center" alt="Jenkins web-UI setup, admin user creation" />
+</a></p>
+
+<p>Configure <code>Jenkins</code> URL.</p>
+
+<p><a href="/img/post/2019060101/jenkins-initial-setup-05.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-05.png#center" alt="Jenkins web-UI setup, URL configuration" />
+</a></p>
+
+<p>And finally <code>Jenkins</code> is ready.</p>
+
+<p><a href="/img/post/2019060101/jenkins-initial-setup-06.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-initial-setup-06.png#center" alt="Jenkins web-UI setup, finish" />
+</a></p>
+
+<p>Proceed with creating a new item
+pipeline for the <strong>0001</strong> project.</p>
+
+<p><a href="/img/post/2019060101/jenkins-dashboard-01.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-dashboard-01.png#center" alt="Jenkins web-UI" />
+</a></p>
+
+<p>Enter project name (<strong>proj0001</strong>), select &ldquo;<strong>Pipeline</strong>&rdquo;,
+then press &ldquo;<strong>OK</strong>&rdquo; button.</p>
+
+<p><a href="/img/post/2019060101/jenkins-new-pipeline-01.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-new-pipeline-01.png#center" alt="Jenkins web-UI, new pipeline" />
+</a></p>
+
+<p>Enter project description for clarity.</p>
+
+<p><a href="/img/post/2019060101/jenkins-new-pipeline-02.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-new-pipeline-02.png#center" alt="Jenkins web-UI, new pipeline" />
+</a></p>
+
+<p>Check &ldquo;<strong>Do not allow concurrent builds</strong>&rdquo; and &ldquo;<strong>Poll SCM</strong>&rdquo; checkboxes.
+Do not enter anything in &ldquo;<strong>Schedule</strong>&rdquo; field because we&rsquo;re using git
+hook to notify <code>Jenkins</code> about new git pushes. &ldquo;<strong>Poll SCM</strong>&rdquo; should
+be checked though.</p>
+
+<p><a href="/img/post/2019060101/jenkins-new-pipeline-03.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-new-pipeline-03.png#center" alt="Jenkins web-UI, new pipeline" />
+</a></p>
+
+<p>In <strong>Pipeline</strong> section set &ldquo;<strong>Defenition</strong>&rdquo; field value to
+&ldquo;<strong>Pipeline script from SCM</strong>&rdquo;, &ldquo;<strong>SCM</strong>&rdquo; field value to
+&ldquo;<strong>Git</strong>&rdquo;, &ldquo;<strong>Repository URL</strong>&rdquo; field value to &ldquo;<strong>file:///cicd/git/0001</strong>&rdquo;.</p>
+
+<p><a href="/img/post/2019060101/jenkins-new-pipeline-04.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-new-pipeline-04.png#center" alt="Jenkins web-UI, new pipeline" />
+</a></p>
+
+<p>Click &ldquo;<strong>Save</strong>&rdquo; button and this pipeline is ready.</p>
+
+<p><a href="/img/post/2019060101/jenkins-proj-01.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-proj-01.png#center" alt="Jenkins web-UI, created pipeline" />
+</a></p>
+
+<h3 id="project-0001-files-and-directory-structure">Project 0001 files and directory structure</h3>
+
+<p>Now let&rsquo;s create <strong>0001</strong> project directory structure. We need
+some directory where we&rsquo;ll be doing our work on our
+technical drawings. Create that directory somewhere
+in your $HOME. Then clone main repository to that
+directory, go to cloned directory and make initial
+preparations:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">git clone /home/000/artidea/proj/git/0001
+cd 0001</pre></div>
+<p>Create directories for configuration and sheets:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mkdir config sheets</pre></div>
+<p>Copy <code>enumsheets</code> <strong>config.ini</strong> file from <code>enumsheets</code>
+<a href="https://github.com/xanderdin/enumsheets" target="_blank">GitHub repository</a>
+to <strong>config</strong> directory in our project directory
+and name it <strong>enumsheets.ini</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">URL=&#34;https://raw.githubusercontent.com/xanderdin/enumsheets/37789348564ae881acd54c8e3bc70cea5f8ebc65/config.ini&#34;
+wget &#34;$URL&#34; -O config/enumsheets.ini</pre></div>
+<p>Edit it according to your needs and set required
+configuration options.</p>
+
+<p>Next, create <strong>Jenkinsfile</strong> in the root of <strong>0001</strong> project cloned directory
+containing:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Groovy" data-lang="Groovy"><span style="color:#75715e">#!/usr/bin/env groovy</span>
+
+pipeline <span style="color:#f92672">{</span>
+    agent none
+    stages <span style="color:#f92672">{</span>
+        stage<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Clean&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            agent any
+            steps <span style="color:#f92672">{</span>
+                echo <span style="color:#e6db74">&#39;Removing old data...&#39;</span>
+                sh <span style="color:#e6db74">&#39;rm -rf ${WORKSPACE}/enumerated_sheets*&#39;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        stage<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Enum&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            agent <span style="color:#f92672">{</span>
+                docker <span style="color:#f92672">{</span>
+                    image <span style="color:#e6db74">&#39;enumsheets&#39;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+            steps <span style="color:#f92672">{</span>
+                echo <span style="color:#e6db74">&#39;Enumerating sheets...&#39;</span>
+                sh <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">                /app/enumsheets.py -c ${WORKSPACE}/config/enumsheets.ini ${WORKSPACE}/sheets/*.dxf
+</span><span style="color:#e6db74">                &#39;&#39;&#39;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        stage<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Print&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            agent <span style="color:#f92672">{</span>
+                docker <span style="color:#f92672">{</span>
+                    image <span style="color:#e6db74">&#39;dxf2pdf&#39;</span>
+                    args <span style="color:#e6db74">&#34;--entrypoint=&#39;&#39;&#34;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+            steps <span style="color:#f92672">{</span>
+                echo <span style="color:#e6db74">&#39;Printing to PDF...&#39;</span>
+                sh <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">                /app/dxf2pdf -o ${WORKSPACE}/All.pdf ${WORKSPACE}/enumerated_sheets/*.dxf
+</span><span style="color:#e6db74">                &#39;&#39;&#39;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        stage<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Save&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            agent any
+            steps <span style="color:#f92672">{</span>
+                echo <span style="color:#e6db74">&#39;Saving output file...&#39;</span>
+                sh <span style="color:#e6db74">&#39;cp ${WORKSPACE}/All.pdf /cicd/OUT/0001/&#39;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p><em>Note, the first (shebang) line in this <strong>Jenkinsfile</strong> is not required
+by <code>Jenkins</code> but is useful for text editors to help them apply right
+syntax highlighting.</em></p>
+
+<p>Here&rsquo;s resulting files and directories structure:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">0001
+    ├── config
+    │   └── enumsheets.ini
+    ├── Jenkinsfile
+    └── sheets</pre></div>
+<p>Add all changes to git and push them to main git repository
+by running the following in the <strong>0001</strong> project cloned directory:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">git add .
+git commit -m &#39;Initial commit&#39;
+git push</pre></div>
+<p>From this point every designer on the team can clone or pull
+from the main git repository, draw a new drawing saving it in
+<strong>sheets</strong> directory, pushing work back to main git repository
+and instantly getting collaborative result as a single
+PDF file (<strong>All.pdf</strong>) inside shared <strong>/home/000/artidea/proj/OUT/0001/</strong>
+directory, ready for review and early changes at any time
+during the whole production stage.</p>
+
+<p><a href="/img/post/2019060101/jenkins-pipeline-results.png" target="_blank">
+<img src="/img/post/2019060101/jenkins-pipeline-results.png#center" alt="Jenkins web-UI, project build results" />
+</a></p>
+
+<p>Note, if after your first drawings push to main git repository <code>Jenkins</code> not
+starts the pipeline, then start that pipeline manually from <code>Jenkins</code> web-UI.
+After that each new push to main git repository should work as expected
+(if everything is configured correctly).</p>
+
+<p>You can experiment with this setup by using example DXF files
+from <code>enumsheets</code> project GitHub repository available in
+<a href="https://github.com/xanderdin/enumsheets/tree/37789348564ae881acd54c8e3bc70cea5f8ebc65/examples/orig" target="_blank">example/orig</a>
+directory. Download them and put them one by one in any order to <strong>sheets</strong>
+directory of <strong>0001</strong> project, pushing changes to main git repository and
+watching how <strong>/home/000/artidea/proj/OUT/0001/All.pdf</strong> file changes
+with every git push and pipeline run.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>By using described setup the original goals were met. Now everyone
+on the team can see at any stage what the result looks like,
+make required corrections early in the process and work with
+other team members in parallel on the same project. Automation eliminated
+manual assembly process and hugely decreased the time from drawing to result
+(from hours of manual work to a few seconds of automated assembly).
+And this example shows how not only software development teams can benefit
+from CI/CD techniques, but teams in other production environments also.
+Obviously, there are plenty of them waiting for similar improvements. Why not
+find and help them?</p>
+
+<p><img src="/img/post/2019060101/31576.jpg#center" alt="Collaboration" />
+<center>
+<small><a href="https://www.freepik.com/free-photos-vectors/business" target="_blank">Business photo created by rawpixel.com - www.freepik.com</a></small>
+</center></p>
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/en/tags/automation/" rel="tag">automation</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/en/tags/jenkins/" rel="tag">jenkins</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/en/tags/docker/" rel="tag">docker</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/en/tags/cicd/" rel="tag">cicd</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/en/tags/enumsheets/" rel="tag">enumsheets</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/en/tags/dxf2pdf/" rel="tag">dxf2pdf</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/en/post/my-pocket-tomtit/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">My Pocket Tomtit</p></a>
+	</div>
+</nav>
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    this.page.identifier = '2019060101-cicd-for-artidea.en';
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "xanderdin" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://xanderdin.github.io/" />
+	</form>
+</div>
+<div class="widget-languages widget">
+	<h4 class="widget__title">Languages</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget-languages__link widget__link" href="/en/">
+					<span class="widget-languages__link-btn widget__link-btn btn">EN</span>
+					<span class="widget-languages__link-text widget__link-text">English</span>
+				</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget-languages__link widget__link" href="/ru/">
+					<span class="widget-languages__link-btn widget__link-btn btn">RU</span>
+					<span class="widget-languages__link-text widget__link-text">Русский</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/en/post/cicd-for-artidea/">Who said CI/CD is only for software?</a></li>
+			<li class="widget__item"><a class="widget__link" href="/en/post/my-pocket-tomtit/">My Pocket Tomtit</a></li>
+			<li class="widget__item"><a class="widget__link" href="/en/post/my-librecad-enhancements-20190325/">My LibreCAD enhancements (October 2018 -- March 2019)</a></li>
+			<li class="widget__item"><a class="widget__link" href="/en/post/gitlab-through-tor/">GitLab through Tor</a></li>
+			<li class="widget__item"><a class="widget__link" href="/en/post/lets-lubricate-the-wheel/">What if I lubricate my &#34;wheel&#34;?</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/android" title="Android">Android</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/jiayu-g2f" title="Jiayu g2 f">Jiayu g2 f</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/librecad" title="Libre c a d">Libre c a d</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/automation" title="Automation">Automation</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/cicd" title="Cicd">Cicd</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/docker" title="Docker">Docker</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/dxf2pdf" title="Dxf2pdf">Dxf2pdf</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/enumsheets" title="Enumsheets">Enumsheets</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/flashing" title="Flashing">Flashing</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/git" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/gitlab" title="Gitlab">Gitlab</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/jenkins" title="Jenkins">Jenkins</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/job" title="Job">Job</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/memories" title="Memories">Memories</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/open-source" title="Open source">Open source</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/scripting" title="Scripting">Scripting</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/software-development" title="Software development">Software development</a>
+		<a class="widget-taglist__link widget__link btn" href="/en/tags/tor" title="Tor">Tor</a>
+	</div>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="LinkedIn" rel="noopener noreferrer" href="https://linkedin.com/in/xanderdin" target="_blank">
+				<svg class="widget-social__link-icon icon-linkedin" viewBox="0 0 352 352" width="24" height="24" fill="#fff"><path d="M0,40v272c0,21.9,18.1,40,40,40h272c21.9,0,40-18.1,40-40V40c0-21.9-18.1-40-40-40H40C18.1,0,0,18.1,0,40z M312,32 c4.6,0,8,3.4,8,8v272c0,4.6-3.4,8-8,8H40c-4.6,0-8-3.4-8-8V40c0-4.6,3.4-8,8-8H312z M59.5,87c0,15.2,12.3,27.5,27.5,27.5 c15.2,0,27.5-12.3,27.5-27.5c0-15.2-12.3-27.5-27.5-27.5C71.8,59.5,59.5,71.8,59.5,87z M187,157h-1v-21h-45v152h47v-75 c0-19.8,3.9-39,28.5-39c24.2,0,24.5,22.4,24.5,40v74h47v-83.5c0-40.9-8.7-72-56.5-72C208.5,132.5,193.3,145.1,187,157z M64,288h47.5 V136H64V288z"/></svg>
+				<span>LinkedIn</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/xanderdin" target="_blank">
+				<svg class="widget-social__link-icon icon-github" viewBox="0 0 384 374" width="24" height="24" fill="#fff"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2019 Alexander Pravdin.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script></body>
+</html>

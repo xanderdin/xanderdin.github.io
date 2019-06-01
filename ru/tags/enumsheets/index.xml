@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>enumsheets on @xanderdin</title>
+    <link>https://xanderdin.github.io/ru/tags/enumsheets/</link>
+    <description>Recent content in enumsheets on @xanderdin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <lastBuildDate>Sat, 01 Jun 2019 10:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="https://xanderdin.github.io/ru/tags/enumsheets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>И кто сказал, что CI/CD только для софта?</title>
+      <link>https://xanderdin.github.io/ru/post/cicd-for-artidea/</link>
+      <pubDate>Sat, 01 Jun 2019 10:00:00 +0300</pubDate>
+      
+      <guid>https://xanderdin.github.io/ru/post/cicd-for-artidea/</guid>
+      <description>&lt;p&gt;Недавно я гуглил на предмет использования CI/CD. Существует огромное
+количество статей на эту тему, но все они в основном о том, как
+применять эти практики в сфере разработки программного обеспечения.
+Неужели это единственная область, где эти подходы применимы? Конечно нет.
+Вот мой пример использования их в области, которая не относится к разработке
+программного обеспечения.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

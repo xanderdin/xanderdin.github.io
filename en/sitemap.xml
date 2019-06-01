@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://xanderdin.github.io/en/post/cicd-for-artidea/</loc>
+    <lastmod>2019-06-01T10:00:00+03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/post/cicd-for-artidea/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/post/cicd-for-artidea/"
+                />
+  </url>
+  
+  <url>
     <loc>https://xanderdin.github.io/en/post/my-pocket-tomtit/</loc>
     <lastmod>2019-04-13T20:00:00+03:00</lastmod>
     <xhtml:link
@@ -94,7 +109,7 @@
   
   <url>
     <loc>https://xanderdin.github.io/en/</loc>
-    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
+    <lastmod>2019-06-01T10:00:00+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -173,7 +188,7 @@
   
   <url>
     <loc>https://xanderdin.github.io/en/post/</loc>
-    <lastmod>2019-04-13T20:00:00+03:00</lastmod>
+    <lastmod>2019-06-01T10:00:00+03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -205,8 +220,72 @@
   
   <url>
     <loc>https://xanderdin.github.io/en/tags/automation/</loc>
-    <lastmod>2018-11-20T20:00:00+03:00</lastmod>
+    <lastmod>2019-06-01T10:00:00+03:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/en/tags/cicd/</loc>
+    <lastmod>2019-06-01T10:00:00+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/cicd/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/cicd/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/en/tags/docker/</loc>
+    <lastmod>2019-06-01T10:00:00+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/docker/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/en/tags/dxf2pdf/</loc>
+    <lastmod>2019-06-01T10:00:00+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/dxf2pdf/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/dxf2pdf/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/en/tags/enumsheets/</loc>
+    <lastmod>2019-06-01T10:00:00+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/enumsheets/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/enumsheets/"
+                />
   </url>
   
   <url>
@@ -244,6 +323,22 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://xanderdin.github.io/en/tags/gitlab/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://xanderdin.github.io/en/tags/jenkins/</loc>
+    <lastmod>2019-06-01T10:00:00+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://xanderdin.github.io/ru/tags/jenkins/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xanderdin.github.io/en/tags/jenkins/"
                 />
   </url>
   
